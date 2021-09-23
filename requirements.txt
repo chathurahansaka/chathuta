@@ -1,0 +1,12 @@
+#song bot
+youtube_search
+requests
+youtube_dl
+aiohttp
+Pyrogram
+Tgcrypto
+asyncio
+
+#video dl
+aiofiles
+yt_dlp
