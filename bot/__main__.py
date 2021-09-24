@@ -39,10 +39,18 @@ FSUBB = InlineKeyboardMarkup(
 text = """
 Hello [{}](tg://user?id={}) 👋
 
+🔥Available Features :-
+   ✪ Song Downloader
+   ✪ Video Downloader
+   ✪ Youtube Tag finder
+   ✪ Youtube Downloader
+   ✪ Saavn Downloader
+   ✪ Lyric
+   ✪ Inline youtube search
+   ✪ And More..
 If you want to know how to use this bot just
-touch on " Help "  Button 👨
+touch on `Help` Button 👨
 """
-photo="https://telegra.ph/file/1804aa067b165793c6a1a.jpg",
 
 @app.on_message(filters.command("start"))
 async def start(client, message): #fsub start
