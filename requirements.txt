@@ -40,8 +40,8 @@ YoutubeTags
 heroku3
 psutil
 pygithub
-
-
+motor
+dnspython
 
 
 
