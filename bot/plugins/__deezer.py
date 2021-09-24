@@ -1,5 +1,6 @@
 import os
-from bot import bot, arq
+from bot import bot
+from bot import arq
 from pyrogram import filters
 from bot.helpers.songdown import download_song, is_downloading, dl_limit
 
