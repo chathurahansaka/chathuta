@@ -1,6 +1,5 @@
 from bot import bot as app, arq
 from bot import aiohttpsession as session
-from config import ARQ_API_KEY
 from pyrogram import filters
 from io import BytesIO
 
