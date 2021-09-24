@@ -21,8 +21,8 @@
 #SOFTWARE.
 
 from pyrogram import Client, filters
-from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, Chat, CallbackQuery, ParseMode
-
+from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, Chat, CallbackQuery 
+from telegram import ParseMode
 from bot import bot as app
 
 #song text
