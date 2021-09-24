@@ -22,6 +22,42 @@
         "API_ID": {
             "description": "Your APP ID from my.telegram.org",
             "value": ""
+        },
+        "DATABASE_URL": {
+            "description": "mongo db url",
+            "value": ""
+        },
+        "SUDO_USERS": {
+            "description": "Your telegram id",
+            "value": ""
+        },
+        "BOT_USERNAME": {
+            "description": "Your bot username without @",
+            "value": ""
+        },
+        "BOT_OWNER": {
+            "description": "Your telegram id",
+            "value": ""
+        },
+        "HEROKU_URL": {
+            "description": "Your heroku url",
+            "value": ""
+        },
+        "HEROKU_API_KEY": {
+            "description": "Your heroku api key",
+            "value": ""
+        }
+         "LOG_CHANNEL": {
+            "description": "Channel id",
+            "value": ""
+        },
+        "BROADCAST_AS_COPY": {
+            "description": "true /false",
+            "value": "true"
+        },
+        "ARQ_API_KEY": {
+            "description": "arq api",
+            "value": ""
         }
     },
     "addons": [],
