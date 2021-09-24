@@ -63,14 +63,7 @@ async def start(client, message): #fsub start
     user_id = message.from_user["id"]
     name = message.from_user["first_name"]
     if message.chat.type == "private":
-        
-          await message.reply_photo(
-                    photo="https://telegra.ph/file/1804aa067b165793c6a1a.jpg",
-                    reply_markup=button,
-                    caption=text.format(name, user_id))           
-    else:
-         await message.reply_text["I am now online "]
-    button = InlineKeyboardMarkup(
+            button = InlineKeyboardMarkup(
     [
         [
             InlineKeyboardButton(
@@ -98,6 +91,12 @@ async def start(client, message): #fsub start
         ],
     ]      
 )
+          await message.reply_photo(
+                    photo="https://telegra.ph/file/1804aa067b165793c6a1a.jpg",
+                    reply_markup=button,
+                    caption=text.format(name, user_id))           
+    else:
+         await message.reply_text["I am now online "]
 app.start()
 LOGGER.info("""
 ┏━┳┓╋╋╋╋╋┏┓╋╋╋┏┓┏┓╋╋┏┓
