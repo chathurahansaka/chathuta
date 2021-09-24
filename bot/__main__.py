@@ -68,7 +68,11 @@ async def start(client, message): #fsub start
 
     else:
         button = None
-    await message.reply(text.format(name, user_id), reply_markup=button)
+                await m.reply_photo(
+                    photo="https://telegra.ph/file/e013f67c7ccddc089171d.png",
+                    reply_markup=button,
+                    caption=f"Hello [{}](tg://user?id={}) 👋\n\nIf you want to know how to use this bot just\ntouch on " `Help` "  Button 👨.format(name, user_id)")
+
 
 @app.on_message(filters.command("start"))
 async def start(client, message):
