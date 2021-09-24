@@ -12,3 +12,4 @@ async def download_song(url):
 
 # Needed. 
 is_downloading = False
+dl_limit = 0
