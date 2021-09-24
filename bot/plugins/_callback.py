@@ -158,3 +158,6 @@ async def botback(_, query: CallbackQuery):
         ),
      disable_web_page_preview=True
     )  
+@app.on_callback_query(filters.regex("cls"))
+async def close(_, query: CallbackQuery):
+    await query.message.delete()
