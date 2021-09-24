@@ -34,7 +34,6 @@ from config import SUDO_USERS
 async def broadcast(_, message: Message):
     sent=0
     failed=0
-    else:
         wtf = await message.reply("`starting broadcast...`")
         if not message.reply_to_message:
             await wtf.edit("please reply to a message to start broadcast!")
