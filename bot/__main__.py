@@ -88,7 +88,7 @@ async def start(client, message): #fsub start
         
     else:
         button = None
-    await message.reply_photo(photo=photo, text=text.format(name, user_id), reply_markup=button)
+    await message.reply(text.format(name, user_id), reply_markup=button)
 
 app.start()
 LOGGER.info("𝖄𝖊𝖘 𝕴'𝖒 𝖆𝖑𝖎𝖛𝖊 🤭")
