@@ -26,20 +26,24 @@ from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, 
 from bot import bot as app
 
 #song text
-TEXT = "🌟Use Bellow Format \n\n💫 Format :- /song <song name >"
+TEXT = "🌟Use Bellow Format \n\n💫 Format :-  ✮ /song <song name >"
+
 #lyric text
-LYRIC = "🌟Use Bellow Format \n\n💫 Format :- /lyric <lyric name >"
+LYRIC = "🌟Use Bellow Format \n\n💫 Format :- ✮ /lyric <lyric name >"
+
 #Video Download text
-VIDEO = "🌟Use Bellow Format \n\n💫 Format :- /video <video name >"
+VIDEO = "🌟Use Bellow Format \n\n💫 Format :- ✮ /video <video name >"
+
 #saavn  text
-SAAVN = "🌟Use Bellow Format \n\n💫 Format :- /saavn <saavn name >"
+SAAVN = "🌟Use Bellow Format \n\n💫 Format :- ✮ /saavn <saavn name >"
+
 # Youtube Video Tag
-YTTAG = "🌟Use Bellow Format \n\n💫 Format :- <Youtube video link>"
+YTTAG = "🌟Use Bellow Format \n\n💫 Format :- ✮ <Youtube video link>"
 
 @app.on_callback_query(filters.regex("help"))
 async def help(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""Help menu off szsong bot
+        f"""⚊❮❮❮❮ Help menu off szsong bot ❯❯❯❯⚊
 """,
         reply_markup=InlineKeyboardMarkup(
             [ 
@@ -110,22 +114,12 @@ async def about(_, query: CallbackQuery):
                     InlineKeyboardButton(
                         "About Bot🤖", callback_data="botback")
                 ],[
-                    InlineKeyboardButton(
-                        "About Developers ", callback_data="devback")
-                ],[
-                    InlineKeyboardButton(
-                        "About You", callback_data="youback")
-                ],[
-                    InlineKeyboardButton(
-                        "About szrose", callback_data="roseback"
-                    )
-                ],[
                      InlineKeyboardButton(
                         "Help Menu", callback_data="help"
                     )
                 ],[
                      InlineKeyboardButton(
-                        "Close", callback_data="cls"
+                        "🔙 Back", callback_data="help"
                     )
                 ]
             ]
@@ -147,11 +141,11 @@ async def botback(_, query: CallbackQuery):
             [ 
                [
                      InlineKeyboardButton(
-                        "Help", callback_data="help"
+                        "Developers ✨ ", callback_data="dev"
                     )
                 ],[
                      InlineKeyboardButton(
-                        "Back", callback_data="about"
+                        "❌ Close ❌", callback_data="cls"
                     )
                 ]
             ]
