@@ -1,9 +1,7 @@
 from bot import bot as app
-from bot import arq, session
-from config import ARQ_API_KEY
+from bot import arq
+from bot import aiohttpsession as session
 from pyrogram import filters
-from Python_ARQ import ARQ
-from aiohttp import ClientSession
 from io import BytesIO
 
 is_downloading = False
