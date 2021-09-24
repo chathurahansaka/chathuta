@@ -1,4 +1,4 @@
-from bot import bot
+from bot import bot, ARQ_API_KEY
 from pyrogram import filters
 from Python_ARQ import ARQ
 from aiohttp import ClientSession
@@ -6,7 +6,6 @@ from io import BytesIO
 
 is_downloading = False
 ARQ_API_URL = "https://thearq.tech"
-ARQ_API_KEY = "BCMNQQ-UVYTWJ-SSBUVQ-DYMOVK-ARQ"
 session = ClientSession()
 arq = ARQ(ARQ_API_URL, ARQ_API_KEY, session)
 
