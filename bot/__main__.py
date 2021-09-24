@@ -69,8 +69,7 @@ async def start(client, message): #fsub start
                     reply_markup=button,
                     caption=text.format(name, user_id))           
     else:
-         await message.reply_text["I am now online ",
-                                  reply_markup = botton,]
+         await message.reply_text["I am now online "]
      button = InlineKeyboardMarkup(
                 [
                     [
