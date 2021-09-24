@@ -25,7 +25,7 @@ import os
 from bot import bot as app
 
 from pyrogram import Client, filters
-from youtubesearchpython import VideosSearch #important
+from youtube_search import VideosSearch #important
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.types import User, Message, InlineQuery, InlineQueryResultArticle, InputTextMessageContent, InlineKeyboardMarkup, InlineKeyboardButton
 
