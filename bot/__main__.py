@@ -69,11 +69,11 @@ async def start(client, message): #fsub start
     else:
          await message.reply_text("I am now online ",
                                   reply_markup=botton,)
-     botton = InlineKeyboardMarkup(
+     botton = InlineKeyboardMarkup[
               [
                    [InlineKeyboardButton(text="Contact me in PM", url="http://t.me/szrosebot")],
                 ] 
-             )
+            ]
      button = InlineKeyboardMarkup(
                 [
                     [
