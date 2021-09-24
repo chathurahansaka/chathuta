@@ -80,6 +80,14 @@ async def start(client, message): #fsub start
                     photo="https://telegra.ph/file/1804aa067b165793c6a1a.jpg",
                     reply_markup=button,
                     caption=text.format(name, user_id))
+    else:
+         await message.reply_text("I am now online ",
+                                  reply_markup=botton,)
+     botton = InlineKeyboardMarkup(
+              [
+                   [InlineKeyboardButton(text="Contact me in PM", url="http://t.me/szrosebot")],
+                ] 
+             )
 
 
 
