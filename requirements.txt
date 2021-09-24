@@ -32,4 +32,4 @@ asyncio
 aiofiles
 yt_dlp
 wget
-youtubesearchpython
+
