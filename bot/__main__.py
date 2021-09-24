@@ -88,7 +88,7 @@ async def start(client, message): #fsub start
 
     else:
         button = None
-                await m.reply_photo(photo, text, reply_markup=button)
+                await message.reply_photo(photo, text, reply_markup=button)
 
 
 app.start()
