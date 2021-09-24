@@ -1,7 +1,6 @@
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from bot import bot as app
 from bot import LOGGER
-from pyrogram.types import Message
 from pyrogram.types.bots_and_keyboards import reply_keyboard_markup
 from pyrogram.errors import UserNotParticipant, ChatAdminRequired, UsernameNotOccupied #fsub
 from bot.plugins import *
@@ -67,11 +66,11 @@ async def start(client, message): #fsub start
             )
         ],
     ]      
- ),
-          await message.reply_photo(
-                photo=f"https://telegra.ph/file/1804aa067b165793c6a1a.jpg",
-                quote=False,
-            )         
+ )
+          await message.reply_photo[
+                    photo="https://telegra.ph/file/1804aa067b165793c6a1a.jpg",
+                    reply_markup=button,
+                    caption=text.format(name, user_id)]
     else:
          await message.reply_text("I am now online ")
 app.start()
