@@ -41,15 +41,9 @@ FSUBB = InlineKeyboardMarkup(
 text = """
 Hello [{}](tg://user?id={}) 👋
 
-🔥Available Features :-
-   ✪ Song Downloader
-   ✪ Video Downloader
-   ✪ Youtube Tag finder
-   ✪ Youtube Downloader
-   ✪ Saavn Downloader
-   ✪ Lyric
-   ✪ Inline youtube search
-   ✪ And More..
+I am advance song downloader bot
+With more features!😊
+
 If you want to know how to use this bot just
 touch on `Help` Button 👨
 """
@@ -68,34 +62,18 @@ async def start(client, message): #fsub start
     name = message.from_user["first_name"]
     if message.chat.type == "private":
         button = InlineKeyboardMarkup(
-    [
-        [
-            InlineKeyboardButton(
-                text="Help & commands 🛠", callback_data="help"
-            ),
-            InlineKeyboardButton(
-                text="Developers ✨",
-                url="https://t.me/supunma",
-            ),
-        ],
-        [
-            InlineKeyboardButton(
-                text="Updates Channel🗣",
-                url ="https://t.me/SL_bot_zone",
-            ),
-            InlineKeyboardButton(
-                text="Support Group👥", url="https://t.me/slbotzone"
-            ),
-        ],
-        [
-            InlineKeyboardButton(
-                text="Add Me To Your Group 🎉",
-                url=f"http://t.me/szrosebot?startgroup=new",
-            )
-        ],
-    ]      
-)        
-        
+                [
+                    [
+                        InlineKeyboardButton("Help button ", callback_data="help"),
+                        InlineKeyboardButton("Developers ✨ ", callback_data="dev"),
+                    ],
+                    [
+                        InlineKeyboardButton(text="Updates Channel🗣", url="https://t.me/SL_bot_zone"),
+                        InlineKeyboardButton(text="Support Group👥", url="https://t.me/slbotzone"),
+                    ],
+                    [InlineKeyboardButton(text="Add Me To Your Group 🎉", url="http://t.me/szrosebot?startgroup=new")],
+                ]
+            )  
     else:
         button = None
     await message.reply_photo(
