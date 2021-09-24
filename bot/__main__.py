@@ -93,29 +93,6 @@ async def start(client, message): #fsub start
                     caption=f"Hello [{}](tg://user?id={}) 👋\n\nIf you want to know how to use this bot just\ntouch on " `Help` "  Button 👨.format(name, user_id)")
 
 
-@app.on_message(filters.command("tart"))
-async def tart(client, message):
-    chat_id = message.chat.id
-    user_id = message.from_user["id"]
-    name = message.from_user["first_name"]
-    if message.chat.type == "group":
-        Button = InlineKeyboardMarkup(
-            [
-                [
-                     InlineKeyboardButton(
-                        text="Updates Channel🗣", url="https://t.me/SL_bot_zone"
-                    ),
-                    InlineKeyboardButton(
-                        text="Support Chat 💭", url="https://t.me/slbotzone"
-                    )
-                ]
-            ]
-        )
-
-    else:
-        button = None
-    await message.reply(Text.format(name, user_id), reply_markup=Button)
-
 app.start()
 LOGGER.info("𝖄𝖊𝖘 𝕴'𝖒 𝖆𝖑𝖎𝖛𝖊 🤭")
 idle()
