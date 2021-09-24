@@ -155,3 +155,29 @@ async def botback(_, query: CallbackQuery):
 @app.on_callback_query(filters.regex("cls"))
 async def close(_, query: CallbackQuery):
     await query.message.delete()
+    
+@app.on_callback_query(filters.regex("dev"))
+async def devback(_, query: CallbackQuery):
+    await query.edit_message_text(
+        f"""╔═════ೋೋ═════╗
+          𝑻𝒉𝒊𝒔 𝒊𝒔 𝑴𝒚 𝑫𝒆𝒗𝒆𝒍𝒐𝒑𝒆𝒓𝒔
+1️⃣ @supunma
+2️⃣ @Kmsrk
+3️⃣ @tinurad
+         Thank you !
+""",
+        reply_markup=InlineKeyboardMarkup(
+            [ 
+               [
+                     InlineKeyboardButton(
+                        "Developers Info", callback_data="devinfo"
+                    )
+                ],[
+                     InlineKeyboardButton(
+                        "❌ Close ❌", callback_data="cls"
+                    )
+                ]
+            ]
+        ),
+     disable_web_page_preview=True
+    )  
