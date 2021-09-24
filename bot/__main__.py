@@ -80,12 +80,12 @@ async def start(client, message): #fsub start
         [
             InlineKeyboardButton(
                 text="Add Me To Your Group 🎉",
-                url=f"http://t.me/{BOT_USERNAME}?startgroup=new",
+                url=f"http://t.me/szrosebot?startgroup=new",
             )
         ],
-    ]
-)
-
+    ]      
+)        
+        
     else:
         button = None
                await message.reply(text.format(name, user_id), reply_markup=button)
