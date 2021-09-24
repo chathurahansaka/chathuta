@@ -31,3 +31,4 @@ asyncio
 #video dl
 aiofiles
 yt_dlp
+wget
