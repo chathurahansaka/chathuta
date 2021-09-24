@@ -87,5 +87,62 @@ async def saavn_callbacc(_, CallbackQuery):
     text = SAAVN
     await app.answer_callback_query(CallbackQuery.id, text, show_alert=True)  
     
-     
-    
+@app.on_callback_query(filters.regex("about"))
+async def about(_, query: CallbackQuery):
+    await query.edit_message_text(
+        f"""About menu
+""",
+        reply_markup=InlineKeyboardMarkup(
+            [ 
+                [
+                    InlineKeyboardButton(
+                        "About Bot🤖", callback_data="botback")
+                ],[
+                    InlineKeyboardButton(
+                        "About Developers ", callback_data="devback")
+                ],[
+                    InlineKeyboardButton(
+                        "About You", callback_data="youback")
+                ],[
+                    InlineKeyboardButton(
+                        "About szrose", callback_data="roseback"
+                    )
+                ],[
+                     InlineKeyboardButton(
+                        "Help Menu", callback_data="help"
+                    )
+                ],[
+                     InlineKeyboardButton(
+                        "Close", callback_data="cls"
+                    )
+                ]
+            ]
+        ),
+     disable_web_page_preview=True
+    )     
+@app.on_callback_query(filters.regex("botback"))
+async def botback(_, query: CallbackQuery):
+    await query.edit_message_text(
+        f"""✨ Bot :  Song Downloader Bot (https://t.me/szrosebot)
+✨ Developer : szbots 🇱🇰 (https://telegram.me/sl_bot_zone)
+✨ Updates Channel :  Updates (https://telegram.me/sl_bot_zone)
+✨ Support Group : Support (https://telegram.me/slbotzone)
+✨ Language : Python3 (https://python.org/)
+✨ Library : Pyrogram (https://pyrogram.org/)
+✨ Hosting service : Heroku (https://www.heroku.com/)
+""",
+        reply_markup=InlineKeyboardMarkup(
+            [ 
+               [
+                     InlineKeyboardButton(
+                        "Help", callback_data="help"
+                    )
+                ],[
+                     InlineKeyboardButton(
+                        "Back", callback_data="about"
+                    )
+                ]
+            ]
+        ),
+     disable_web_page_preview=True
+    )  
