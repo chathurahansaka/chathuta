@@ -70,8 +70,7 @@ async def start(client, message): #fsub start
                     caption=text.format(name, user_id))           
     else:
          await message.reply_text["I am now online "]
-     button = InlineKeyboardMarkup(
-                [
+     button = InlineKeyboardMarkup[
                     [
                         InlineKeyboardButton("Help button ", callback_data="help"),
                         InlineKeyboardButton("Developers ✨ ", callback_data="dev"),
@@ -81,8 +80,7 @@ async def start(client, message): #fsub start
                         InlineKeyboardButton(text="Support Group👥", url="https://t.me/slbotzone"),
                     ],
                     [InlineKeyboardButton(text="Add Me To Your Group 🎉", url="http://t.me/szrosebot?startgroup=new")],
-                ]
-            )  
+                ] 
 
 
 app.start()
