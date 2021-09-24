@@ -33,5 +33,4 @@ aiofiles
 yt_dlp
 wget
 
-#not sure 
-telegram
+
