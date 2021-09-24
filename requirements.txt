@@ -42,7 +42,6 @@ time
 shutil
 psutil
 datetime
-functools 
 git
 
 
