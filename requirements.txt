@@ -45,4 +45,4 @@ dnspython
 pymongo
 
 #arq
-python-arq
+python-arq==6.0.3
