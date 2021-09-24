@@ -42,7 +42,7 @@ Hello [{}](tg://user?id={}) 👋
 If you want to know how to use this bot just
 touch on " Help "  Button 👨
 """
-photo="https://telegra.ph/file/e013f67c7ccddc089171d.png",
+photo="https://telegra.ph/file/1804aa067b165793c6a1a.jpg",
 
 @app.on_message(filters.command("start"))
 async def start(client, message): #fsub start
