@@ -28,7 +28,7 @@ from bot import bot as app
 from pyrogram import Client, filters
 
 
-@app.on_message(filters.command(["lyric"))
+@app.on_message(filters.command(["lyric"]))
 async def lirik(_, message):
     rep = await message.reply_text("🔎 **searching lyrics...**")
     try:
