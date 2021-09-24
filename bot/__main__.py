@@ -66,7 +66,8 @@ async def start(client, message): #fsub start
                     photo="https://telegra.ph/file/1804aa067b165793c6a1a.jpg",
                     reply_markup=button,
                     caption=text.format(name, user_id))
-        button = InlineKeyboardMarkup(
+                
+          button = InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton("Help button ", callback_data="help"),
@@ -79,7 +80,6 @@ async def start(client, message): #fsub start
                     [InlineKeyboardButton(text="Add Me To Your Group 🎉", url="http://t.me/szrosebot?startgroup=new")],
                 ]
             )  
-
     else:
          await message.reply_text("I am now online ",
                                   reply_markup=botton,)
