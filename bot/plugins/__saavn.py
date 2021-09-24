@@ -1,14 +1,10 @@
-from bot import bot as app
+from bot import bot as app, arq
+from bot import aiohttpsession as session
 from config import ARQ_API_KEY
 from pyrogram import filters
-from Python_ARQ import ARQ
-from aiohttp import ClientSession
 from io import BytesIO
 
 is_downloading = False
-ARQ_API_URL = "https://thearq.tech"
-session = ClientSession()
-arq = ARQ(ARQ_API_URL, ARQ_API_KEY, session)
 
 # Funtion To Download Song
 async def download_song(url):
