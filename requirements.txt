@@ -33,4 +33,6 @@ aiofiles
 yt_dlp
 wget
 
+#vidtags
+YoutubeTags
 
