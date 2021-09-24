@@ -41,7 +41,7 @@ from os import environ, execle, path, remove
 from bot import bot as app
 from bot.helpers.database import db
 from bot.helpers.dbthings import main_broadcast_handler
-from bot.helpers.humanbytes import humanbytes, get_text
+from bot.helpers.humanbytes import humanbytes
 from config import BOT_USERNAME, BOT_OWNER, HEROKU_URL, HEROKU_API_KEY, HEROKU_APP_NAME, SUDO_USERS
 
 
