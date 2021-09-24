@@ -40,25 +40,31 @@ async def help(_, query: CallbackQuery):
         f"""Help menu off szsong bot
 """,
         reply_markup=InlineKeyboardMarkup(
-            [       
-                [
+             [
                     InlineKeyboardButton(
-                         "Song Download", callback_data="songback"
-                    ),
+                        "Song Download", callback_data="songback"
+                    )
+             ],
+             [
                     InlineKeyboardButton(
-                        "lyric Download", callback_data="lyricback")
-                ],[
+                        "lyric Download", callback_data="lyricback"
+                    )
+             ],
+             [
                     InlineKeyboardButton(
                         "Video Download", callback_data="videoback"
-                    ),
-                    InlineKeyboardButton(
-                        "saavn Download ", callback_data="saavnback")
-                 ],[
-                    InlineKeyboardButton(
-                        "Next", callback_data="cbcmds"
                     )
-                  ]
-           ]
+             ],
+             [
+                    InlineKeyboardButton(
+                        "saavn Download ", callback_data="saavnback"
+                    )
+             ],
+             [
+                    InlineKeyboardButton(
+                        "About", callback_data="next"
+                    )
+             ]
         ),
      disable_web_page_preview=True
     )
