@@ -33,6 +33,8 @@ LYRIC = "🌟Use Bellow Format \n\n💫 Format :- /lyric <lyric name >"
 VIDEO = "🌟Use Bellow Format \n\n💫 Format :- /video <video name >"
 #saavn  text
 SAAVN = "🌟Use Bellow Format \n\n💫 Format :- /saavn <saavn name >"
+# Youtube Video Tag
+YTTAG = "🌟Use Bellow Format \n\n💫 Format :- <Youtube video link>"
 
 @app.on_callback_query(filters.regex("help"))
 async def help(_, query: CallbackQuery):
@@ -55,6 +57,10 @@ async def help(_, query: CallbackQuery):
                         "saavn Download ", callback_data="saavnback"
                     )
                 ],[
+                    InlineKeyboardButton(
+                        "Youtube Tag Find ", callback_data="yttagback"
+                    )    
+                ],[
                      InlineKeyboardButton(
                         "About", callback_data="about"
                     )
@@ -62,6 +68,7 @@ async def help(_, query: CallbackQuery):
                      InlineKeyboardButton(
                         "Search Inline🔎 ", switch_inline_query_current_chat=""
                     )
+                    
                 ]
             ]
         ),
@@ -86,6 +93,11 @@ async def video_callbacc(_, CallbackQuery):
 async def saavn_callbacc(_, CallbackQuery):
     text = SAAVN
     await app.answer_callback_query(CallbackQuery.id, text, show_alert=True)  
+    
+@app.on_callback_query(filters.regex("yttagback"))
+async def yttag_callbacc(_, CallbackQuery):
+    text = YTTAG
+    await app.answer_callback_query(CallbackQuery.id, text, show_alert=True)      
     
 @app.on_callback_query(filters.regex("about"))
 async def about(_, query: CallbackQuery):
