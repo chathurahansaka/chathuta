@@ -1,5 +1,6 @@
 from bot import bot as app
-from config import ARQ_API_KEY, arq
+from bot import arq
+from config import ARQ_API_KEY
 from pyrogram import filters
 from Python_ARQ import ARQ
 from aiohttp import ClientSession
