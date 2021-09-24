@@ -32,7 +32,7 @@ LYRIC = "🌟Use Bellow Format \n\n💫 Format :- /lyric <lyric name >"
 #Video Download text
 VIDEO = "🌟Use Bellow Format \n\n💫 Format :- /video <video name >"
 #saavn  text
-SAAVN = "🌟Use Bellow Format \n\n💫 Format :- /lyric <lyric name >"
+SAAVN = "🌟Use Bellow Format \n\n💫 Format :- /saavn <saavn name >"
 
 @app.on_callback_query(filters.regex("help"))
 async def help(_, query: CallbackQuery):
