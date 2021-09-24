@@ -47,7 +47,9 @@ With more features!😊
 If you want to know how to use this bot just
 touch on `Help` Button 👨
 """
-
+botton = InlineKeyboardMarkup(
+                [[InlineKeyboardButton(text="Updates", url ="https://t.me/szroseupdates")]],
+     )
 @app.on_message(filters.command("start"))
 async def start(client, message): #fsub start
     try:
@@ -69,9 +71,6 @@ async def start(client, message): #fsub start
     else:
          await message.reply_text("I am now online ",
                                   reply_markup=botton,)
-     botton = InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Updates", url ="https://t.me/szroseupdates")]],
-     )
      button = InlineKeyboardMarkup(
                 [
                     [
