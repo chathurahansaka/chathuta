@@ -91,7 +91,7 @@ async def start(client, message): #fsub start
     await message.reply_photo(
                     photo="https://telegra.ph/file/e013f67c7ccddc089171d.png",
                     reply_markup=button,
-                    caption=text)
+                    caption=text.format(name, user_id))
 
 
 app.start()
