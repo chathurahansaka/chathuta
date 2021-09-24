@@ -62,7 +62,7 @@ async def start(client, message): #fsub start
     name = message.from_user["first_name"]
     if message.chat.type == "private":
         
-    await message.reply_photo(
+          await message.reply_photo(
                     photo="https://telegra.ph/file/1804aa067b165793c6a1a.jpg",
                     reply_markup=button,
                     caption=text.format(name, user_id))
