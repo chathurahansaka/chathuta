@@ -34,8 +34,6 @@ from config import SUDO_USERS
 async def broadcast(_, message: Message):
     sent=0
     failed=0
-    if message.from_user.id not in SUDO_USERS:
-        return
     else:
         wtf = await message.reply("`starting broadcast...`")
         if not message.reply_to_message:
