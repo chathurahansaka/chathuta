@@ -61,11 +61,11 @@ async def start(client, message): #fsub start
     [
         [
             InlineKeyboardButton(
-                text="Help & commands 🛠", callback_data="bot_commands"
+                text="Help & commands 🛠", callback_data="help"
             ),
             InlineKeyboardButton(
                 text="Developers ✨",
-                url="https://github.com/thehamkercat/WilliamButcherBot",
+                url="https://t.me/supunma",
             ),
         ],
         [
