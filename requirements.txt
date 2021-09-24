@@ -33,3 +33,5 @@ aiofiles
 yt_dlp
 wget
 
+#not sure 
+telethon==1.16.4
