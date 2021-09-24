@@ -64,7 +64,7 @@ async def help(_, query: CallbackQuery):
                     )
                 ]
             ]
-        ],
+        ),
      disable_web_page_preview=True
     )
 @app.on_callback_query(filters.regex("songback"))
