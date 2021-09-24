@@ -27,6 +27,8 @@ from pyrogram.types.bots_and_keyboards import reply_keyboard_markup
 from pyrogram.errors import UserNotParticipant, ChatAdminRequired, UsernameNotOccupied #fsub
 from bot.plugins import *
 from pyrogram import idle, filters
+from bot.plugins.__Dev import total_users
+
 
 JOIN_ASAP = " **You cant use me untill subscribe our updates channel** ☹️\n\n So Please join our updates channel by the following button and hit on the ` /start ` button again 😊"
 
@@ -48,6 +50,7 @@ Hello [{}](tg://user?id={}) 👋
    ✪ Lyric
    ✪ Inline youtube search
    ✪ And More..
+Users Count = `{total_users}`
 If you want to know how to use this bot just
 touch on `Help` Button 👨
 """
