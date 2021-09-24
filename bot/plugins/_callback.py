@@ -39,7 +39,7 @@ async def help(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""Help menu off szsong bot
 """,
-        reply_markup=InlineKeyboardMarkup(
+        reply_markup=InlineKeyboardMarkup[
              [
                     InlineKeyboardButton(
                         "Song Download", callback_data="songback"
@@ -65,7 +65,7 @@ async def help(_, query: CallbackQuery):
                         "About", callback_data="next"
                     )
              ]
-        ),
+        ],
      disable_web_page_preview=True
     )
 @app.on_callback_query(filters.regex("songback"))
