@@ -39,32 +39,31 @@ async def help(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""Help menu off szsong bot
 """,
-        reply_markup=InlineKeyboardMarkup[
-             [
+        reply_markup=InlineKeyboardMarkup(
+            [ 
+                [
                     InlineKeyboardButton(
-                        "Song Download", callback_data="songback"
-                    )
-             ],
-             [
+                        "Song Download", callback_data="songback")
+                ],[
                     InlineKeyboardButton(
-                        "lyric Download", callback_data="lyricback"
-                    )
-             ],
-             [
+                        "lyric Download", callback_data="lyricback")
+                ],[
                     InlineKeyboardButton(
-                        "Video Download", callback_data="videoback"
-                    )
-             ],
-             [
+                        "Video Download", callback_data="videoback")
+                ],[
                     InlineKeyboardButton(
                         "saavn Download ", callback_data="saavnback"
                     )
-             ],
-             [
-                    InlineKeyboardButton(
-                        "About", callback_data="next"
+                ],[
+                     InlineKeyboardButton(
+                        "About", callback_data="about"
                     )
-             ]
+                ],[
+                     InlineKeyboardButton(
+                        "Search Inline🔎 ", switch_inline_query_current_chat=""
+                    )
+                ]
+            ]
         ],
      disable_web_page_preview=True
     )
