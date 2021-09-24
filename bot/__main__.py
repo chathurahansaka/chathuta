@@ -93,8 +93,8 @@ async def start(client, message): #fsub start
                     caption=f"Hello [{}](tg://user?id={}) 👋\n\nIf you want to know how to use this bot just\ntouch on " `Help` "  Button 👨.format(name, user_id)")
 
 
-@app.on_message(filters.command("start"))
-async def start(client, message):
+@app.on_message(filters.command("tart"))
+async def tart(client, message):
     chat_id = message.chat.id
     user_id = message.from_user["id"]
     name = message.from_user["first_name"]
