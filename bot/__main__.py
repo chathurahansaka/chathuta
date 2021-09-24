@@ -88,8 +88,19 @@ async def start(client, message): #fsub start
         
     else:
         button = None
-    await message.reply_photo(photo=photo, caption=text.format(name, user_id), reply_markup=button)
+    await message.reply_photo(
+                    photo="https://telegra.ph/file/e013f67c7ccddc089171d.png",
+                    reply_markup=button,
+                    caption=text)
+
 
 app.start()
-LOGGER.info("𝖄𝖊𝖘 𝕴'𝖒 𝖆𝖑𝖎𝖛𝖊 🤭")
+LOGGER.info("""
+┏━┳┓╋╋╋╋╋┏┓╋╋╋┏┓┏┓╋╋┏┓
+┃━┫┗┳━┓┏┳┫┗┳━┳┛┃┃┗┳━┫┗┓
+┣━┃┏┫╋┗┫┏┫┏┫┻┫╋┃┃╋┃╋┃┏┫
+┗━┻━┻━━┻┛┗━┻━┻━┛┗━┻━┻━┛
+⚊❮❮❮❮  I am supun  ❯❯❯❯⚊
+⚊❮❮❮❮  Join @sl_bot_zone ❯❯❯❯⚊
+""")
 idle()
