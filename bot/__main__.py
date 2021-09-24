@@ -42,6 +42,7 @@ Hello [{}](tg://user?id={}) 👋
 If you want to know how to use this bot just
 touch on " Help "  Button 👨
 """
+photo="https://telegra.ph/file/e013f67c7ccddc089171d.png",
 
 @app.on_message(filters.command("start"))
 async def start(client, message): #fsub start
@@ -87,7 +88,7 @@ async def start(client, message): #fsub start
 
     else:
         button = None
-                await m.reply_photo(photo="https://telegra.ph/file/e013f67c7ccddc089171d.png", reply_markup=button, caption=f"Hello [{}](tg://user?id={}) 👋\n\nIf you want to know how to use this bot just\ntouch on " `Help` "  Button 👨.format(name, user_id)")
+                await m.reply_photo(photo, text, reply_markup=button)
 
 
 app.start()
