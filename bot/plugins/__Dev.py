@@ -37,14 +37,12 @@ from pyrogram.errors import UserAlreadyParticipant
 from datetime import datetime
 from functools import wraps
 from os import environ, execle, path, remove
-from git import Repo
-from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
 
 from bot import bot as app
 from helpers.database import db
 from helpers.dbthings import main_broadcast_handler
 from helpers.humanbytes import humanbytes, get_text
-from config import BOT_USERNAME, BOT_OWNER, UPSTREAM_REPO, U_BRANCH, HEROKU_URL, HEROKU_API_KEY, HEROKU_APP_NAME, SUDO_USERS
+from config import BOT_USERNAME, BOT_OWNER, HEROKU_URL, HEROKU_API_KEY, HEROKU_APP_NAME, SUDO_USERS
 
 
 # Stats Of Your Bot
