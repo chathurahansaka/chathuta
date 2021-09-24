@@ -50,7 +50,6 @@ Hello [{}](tg://user?id={}) 👋
    ✪ Lyric
    ✪ Inline youtube search
    ✪ And More..
-Users Count = `{total_users}`
 If you want to know how to use this bot just
 touch on `Help` Button 👨
 """
@@ -102,7 +101,7 @@ async def start(client, message): #fsub start
     await message.reply_photo(
                     photo="https://telegra.ph/file/1804aa067b165793c6a1a.jpg",
                     reply_markup=button,
-                    caption=text.format((name, user_id), total_users))
+                    caption=text.format(name, user_id))
 
 
 app.start()
