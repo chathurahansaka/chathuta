@@ -27,7 +27,7 @@ from bot import bot as app
 from pyrogram import Client, filters
 import YoutubeTags
 from YoutubeTags import videotags
-rom pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, Chat, CallbackQuery 
+from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, Chat, CallbackQuery 
 
 @app.on_message(filters.regex("https://www.youtube.com") | filters.regex("http://www.youtube.com") | filters.regex("https://youtu.be/") | filters.regex("https://www.youtu.be/") | filters.regex("http://www.youtu.be/"))
 async def tag(bot, message):
