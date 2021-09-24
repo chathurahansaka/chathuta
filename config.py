@@ -36,4 +36,3 @@ DATABASE_URL = os.getenv("DATABASE_URL")
 LOG_CHANNEL = os.getenv("LOG_CHANNEL")
 BROADCAST_AS_COPY = os.getenv("BROADCAST_AS_COPY")
 ARQ_API_KEY = os.getenv("ARQ_API_KEY")
-
