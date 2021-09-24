@@ -39,7 +39,7 @@ YoutubeTags
 #dev
 heroku3
 psutil
-git
+pygithub
 
 
 
