@@ -70,19 +70,34 @@ async def start(client, message): #fsub start
                     caption=text.format(name, user_id))           
     else:
          await message.reply_text["I am now online "]
-     button = InlineKeyboardMarkup[
-                    [
-                        InlineKeyboardButton("Help button ", callback_data="help"),
-                        InlineKeyboardButton("Developers ✨ ", callback_data="dev"),
-                    ],
-                    [
-                        InlineKeyboardButton(text="Updates Channel🗣", url="https://t.me/SL_bot_zone"),
-                        InlineKeyboardButton(text="Support Group👥", url="https://t.me/slbotzone"),
-                    ],
-                    [InlineKeyboardButton(text="Add Me To Your Group 🎉", url="http://t.me/szrosebot?startgroup=new")],
-                ] 
-
-
+    button = InlineKeyboardMarkup(
+    [
+        [
+            InlineKeyboardButton(
+                text="Help & commands 🛠", callback_data="help"
+            ),
+            InlineKeyboardButton(
+                text="Developers ✨",
+                callback_data="dev",
+            ),
+        ],
+        [
+            InlineKeyboardButton(
+                text="Updates Channel🗣",
+                url ="https://t.me/SL_bot_zone",
+            ),
+            InlineKeyboardButton(
+                text="Support Group👥", url="https://t.me/slbotzone"
+            ),
+        ],
+        [
+            InlineKeyboardButton(
+                text="Add Me To Your Group 🎉",
+                url=f"http://t.me/szrosebot?startgroup=new",
+            )
+        ],
+    ]      
+)
 app.start()
 LOGGER.info("""
 ┏━┳┓╋╋╋╋╋┏┓╋╋╋┏┓┏┓╋╋┏┓
