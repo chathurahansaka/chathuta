@@ -4,8 +4,8 @@ import motor.motor_asyncio
 from config import DATABASE_URL, BOT_USERNAME
 from motor.motor_asyncio import AsyncIOMotorClient as MongoClient
 
-dcmdb = mongo_db_lmao
-mongo_db_lmao = MongoClient(DATABASE_URL)
+client = MongoClient()
+client = MongoClient(DATABASE_URL)
 db = client["song"]
 approved_users = db.approve
 
