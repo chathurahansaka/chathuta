@@ -44,7 +44,6 @@ from bot.helpers.dbthings import main_broadcast_handler
 from bot.helpers.humanbytes import humanbytes
 from config import BOT_USERNAME, BOT_OWNER, HEROKU_URL, HEROKU_API_KEY, HEROKU_APP_NAME, SUDO_USERS
 
-TEXT = total_users
 
 # Stats Of Your Bot
 @app.on_message(filters.command("stats"))
