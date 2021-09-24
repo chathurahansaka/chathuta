@@ -22,7 +22,7 @@
 
 from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, Chat, CallbackQuery 
-from telegram import ParseMode
+
 from bot import bot as app
 
 #song text
@@ -123,13 +123,13 @@ async def about(_, query: CallbackQuery):
 @app.on_callback_query(filters.regex("botback"))
 async def botback(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""✨ Bot :  Song Downloader Bot (https://t.me/szrosebot)
-✨ Developer : szbots 🇱🇰 (https://telegram.me/sl_bot_zone)
-✨ Updates Channel :  Updates (https://telegram.me/sl_bot_zone)
-✨ Support Group : Support (https://telegram.me/slbotzone)
-✨ Language : Python3 (https://python.org/)
-✨ Library : Pyrogram (https://pyrogram.org/)
-✨ Hosting service : Heroku (https://www.heroku.com/)
+        f"""✨ Bot :  [Song Downloader Bot](https://t.me/szrosebot)
+✨ Developer : [szbots 🇱🇰 ](https://telegram.me/sl_bot_zone)
+✨ Updates Channel :  [Updates ](https://telegram.me/sl_bot_zone)
+✨ Support Group : [Support ](https://telegram.me/slbotzone)
+✨ Language : [Python3 ](https://python.org/)
+✨ Library : [Pyrogram ](https://pyrogram.org/)
+✨ Hosting service : [Heroku ](https://www.heroku.com/)
 """,
         reply_markup=InlineKeyboardMarkup(
             [ 
