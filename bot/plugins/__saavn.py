@@ -1,5 +1,5 @@
-from bot import bot
-from bot import ARQ_API_KEY
+from bot import bot as app
+from config import ARQ_API_KEY
 from pyrogram import filters
 from Python_ARQ import ARQ
 from aiohttp import ClientSession
@@ -18,7 +18,7 @@ async def download_song(url):
     song.name = "a.mp3"
     return song
 
-@bot.on_message(filters.command("saavn") & ~filters.edited)
+@app.on_message(filters.command("saavn") & ~filters.edited)
 async def jssong(_, message):
     global is_downloading
     if len(message.command) < 2:
