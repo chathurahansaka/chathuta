@@ -32,3 +32,5 @@ U_BRANCH = os.getenv("U_BRANCH")
 HEROKU_URL = os.getenv("HEROKU_URL")
 HEROKU_API_KEY = os.getenv("HEROKU_API_KEY")
 HEROKU_APP_NAME = os.getenv("HEROKU_APP_NAME")
+DATABASE_URL = os.getenv("DATABASE_URL")
+
