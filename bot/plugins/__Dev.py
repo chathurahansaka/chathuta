@@ -46,7 +46,7 @@ from config import BOT_USERNAME, BOT_OWNER, HEROKU_URL, HEROKU_API_KEY, HEROKU_A
 
 
 # Stats Of Your Bot
-@app.on_message(filters.command("stats") & filters.user(BOT_OWNER))
+@app.on_message(filters.command("stats"))
 async def botstats(_, message: Message):
     total, used, free = shutil.disk_usage(".")
     total = humanbytes(total)
