@@ -25,7 +25,7 @@ async def jssong(_, message):
         )
     is_downloading = True
     text = message.text.split(None, 1)[1]
-    m = await message.reply_text("Searching...")
+    m = await message.reply_text("🔎 Searching...")
     try:
         songs = await arq.saavn(text)
         if not songs.ok:
@@ -36,14 +36,15 @@ async def jssong(_, message):
         slink = songs.result[0].media_url
         ssingers = songs.result[0].singers
         sduration = songs.result[0].duration
-        await m.edit("Downloading")
+        await m.edit("📥 Downloading")
         song = await download_song(slink)
-        await m.edit("Uploading")
+        await m.edit("📤 Uploading")
         await message.reply_audio(
             audio=song,
             title=sname,
             performer=ssingers,
             duration=sduration,
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Join updates🗣", url=f"https://t.me/sl_bot_zone")]]),
         )
         await m.delete()
     except Exception as e:
