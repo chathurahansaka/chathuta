@@ -92,7 +92,5 @@ async def vsong(pbot, message):
 TEXT = """
 🏷 Name:`'title'` 
 🎬 **Source**: `YouTube`
-⏱️ **Duration**: `{duration}`
-👁‍🗨 **Views**: `{views}`
 📤 **By**: @szsongbot 🇱🇰"""
         
