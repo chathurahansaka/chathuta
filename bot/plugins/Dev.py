@@ -70,31 +70,6 @@ async def botstats(_, message: Message):
 async def broadcast_handler_open(_, m: Message):
     await main_broadcast_handler(m, db)
 
-# Broadcast message to users (This will Broadcast using streamer account without db)
-@app.on_message(filters.command(["chatcast"]))
-async def chatcast(_, message: Message):
-    sent=0
-    failed=0
-    if message.from_user.id not in SUDO_USERS:
-        await message.reply("Go away! This is not for you 😂!")
-        return
-    else:
-        wtf = await message.reply("`Starting a Chatcast...`")
-        if not message.reply_to_message:
-            await wtf.edit("Please Reply to a Message to Chatcast it 🥺!")
-            return
-        lmao = message.reply_to_message.text
-        async for dialog in pakaya.iter_dialogs():
-            try:
-                await pakaya.send_message(dialog.chat.id, lmao)
-                sent = sent+1
-                await wtf.edit(f"`ChatCasting...` \n\n**Sent to:** `{sent}` Chats \n**Failed in:** {failed} Chats")
-            except:
-                failed=failed+1
-                await wtf.edit(f"`ChatCasting...` \n\n**Sent to:** `{sent}` Chats \n**Failed in:** {failed} Chats")
-            await asyncio.sleep(3)
-        await message.reply_text(f"`ChatCasting Finished 😌` \n\n**Sent to:** `{sent}` Chats \n**Failed in:** {failed} Chats")
-
 
 # Ban User
 @app.on_message(filters.private & filters.command("ban") & filters.user(BOT_OWNER))
