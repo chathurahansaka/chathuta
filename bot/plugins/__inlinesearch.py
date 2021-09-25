@@ -25,7 +25,7 @@ import os
 from bot import bot as app
 
 from pyrogram import Client, filters
-from youtube_search import YoutubeSearch #important
+from youtubesearchpython import VideosSearch #important
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.types import User, Message, InlineQuery, InlineQueryResultArticle, InputTextMessageContent, InlineKeyboardMarkup, InlineKeyboardButton
 
@@ -45,9 +45,9 @@ async def search(client: Client, query: InlineQuery):
             cache_time=0
         )
     else:
-        YoutubeSearch = YoutubeSearch(search_query, limit=50)
+        VideosSearch = VideosSearch(search_query, limit=50)
 
-        for v in YoutubeSearch.result()["result"]:
+        for v in VideosSearch.result()["result"]:
             answers.append(
                 InlineQueryResultArticle(
                     title=v["title"],
