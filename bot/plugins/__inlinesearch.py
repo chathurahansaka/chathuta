@@ -9,7 +9,7 @@ from pyrogram.types import User, Message, InlineQuery, InlineQueryResultArticle,
 
 
 @app.on_inline_query()
-async def search(client: Client, query: InlineQuery):
+async def inline(client: Client, query: InlineQuery):
     answers = []
     search_query = query.query.lower().strip().rstrip()
 
@@ -17,38 +17,33 @@ async def search(client: Client, query: InlineQuery):
         await client.answer_inline_query(
             query.id,
             results=answers,
-            switch_pm_text="Type video name here..",
+            switch_pm_text="Type a YouTube video name...",
             switch_pm_parameter="help",
-            cache_time=0
+            cache_time=0,
         )
     else:
-        VideosSearch = VideosSearch(search_query, limit=50)
+        search = VideosSearch(search_query, limit=50)
 
-        for v in VideosSearch.result()["result"]:
+        for result in search.result()["result"]:
             answers.append(
                 InlineQueryResultArticle(
-                    title=v["title"],
-                    description=" {} .".format(
-                       v["viewCount"]["short"]
+                    title=result["title"],
+                    description="{}, {} views.".format(
+                        result["duration"], result["viewCount"]["short"]
                     ),
                     input_message_content=InputTextMessageContent(
-                        "https://www.youtube.com/watch?v={}".format(
-                            v["id"]
-                        )
+                        "https://www.youtube.com/watch?v={}".format(result["id"])
                     ),
-                    thumb_url=v["thumbnails"][0]["url"]
+                    thumb_url=result["thumbnails"][0]["url"],
                 )
             )
 
         try:
-            await query.answer(
-                results=answers,
-                cache_time=0
-            )
+            await query.answer(results=answers, cache_time=0)
         except errors.QueryIdInvalid:
             await query.answer(
                 results=answers,
                 cache_time=0,
-                switch_pm_text="**Error: Search timed out❌**",
+                switch_pm_text="Error: Search timed out",
                 switch_pm_parameter="",
             )
