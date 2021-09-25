@@ -77,9 +77,7 @@ async def start(client, message): #fsub start
         InlineKeyboardButton(text="Add Me To Your Group 🎉", url="http://t.me/{BOT_USERNAME}?startgroup=new"),
     ],
 ]
-else:
-    button = None    
-
+    
     await message.reply_photo(
                     photo="https://telegra.ph/file/1804aa067b165793c6a1a.jpg",
                     reply_markup=InlineKeyboardMarkup(button),
