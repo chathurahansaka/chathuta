@@ -30,6 +30,8 @@ import traceback
 import asyncio
 import shutil
 import psutil
+import motor
+
 
 from pyrogram import Client, filters
 from pyrogram.types import Message, Dialog, Chat
