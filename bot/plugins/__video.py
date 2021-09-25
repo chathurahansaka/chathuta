@@ -63,6 +63,7 @@ async def vsong(pbot, message):
         thumb = requests.get(thumbnail, allow_redirects=True)
         open(thumb_name, "wb").write(thumb.content)
         duration = results[0]["duration"]
+        views = results[0]["views"]
         results[0]["url_suffix"]
         results[0]["views"]
         rby = message.from_user.mention
@@ -81,7 +82,7 @@ async def vsong(pbot, message):
         file_name,
         duration=int(ytdl_data["duration"]),
         thumb=preview,
-        caption=ytdl_data(TEXT.format(name, user_id)),
+        caption=ytdl_data(TEXT),
         reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Join updates🗣", url=f"https://t.me/sl_bot_zone")]]))
     try:
         os.remove(file_name)
@@ -90,5 +91,8 @@ async def vsong(pbot, message):
         print(e)
 TEXT = """
 🏷 Name:`'title'` 
-🎬 Requested by:[{}](tg://user?id={})"""
+🎬 **Source**: `YouTube`
+⏱️ **Duration**: `{duration}`
+👁‍🗨 **Views**: `{views}`
+📤 **By**: @szsongbot 🇱🇰"""
         
