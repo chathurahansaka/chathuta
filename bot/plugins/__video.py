@@ -82,7 +82,7 @@ async def vsong(pbot, message):
         file_name,
         duration=int(ytdl_data["duration"]),
         thumb=preview,
-        caption=ytdl_data(TEXT),
+        caption=TEXT,
         reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Join updates🗣", url=f"https://t.me/sl_bot_zone")]]))
     try:
         os.remove(file_name)
@@ -92,5 +92,7 @@ async def vsong(pbot, message):
 TEXT = """
 🏷 Name:`'title'` 
 🎬 **Source**: `YouTube`
+⏱️ **Duration**: `{duration}`
+👁‍🗨 **Views**: `{views}`
 📤 **By**: @szsongbot 🇱🇰"""
         
