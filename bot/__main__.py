@@ -81,7 +81,7 @@ async def start(client, message): #fsub start
                     photo="https://telegra.ph/file/1804aa067b165793c6a1a.jpg",
                     reply_markup=InlineKeyboardMarkup(button),
                     caption=text.format(name, user_id))
-    else:
+else:
     await message.reply_text(
                     reply_markup=InlineKeyboardMarkup(botton),
                     text=text.format(name, user_id))    
