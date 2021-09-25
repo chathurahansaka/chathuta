@@ -46,7 +46,7 @@
         "HEROKU_API_KEY": {
             "description": "Your heroku api key",
             "value": ""
-        }
+        },
          "LOG_CHANNEL": {
             "description": "Channel id",
             "value": ""
