@@ -28,7 +28,7 @@ from pyrogram.errors import UserNotParticipant, ChatAdminRequired, UsernameNotOc
 from bot.plugins import *
 from pyrogram import idle, filters
 from bot.plugins.Dev import *
-
+from config import BOT_USERNAME
 
 JOIN_ASAP = " **You cant use me untill subscribe our updates channel** ☹️\n\n So Please join our updates channel by the following button and hit on the ` /start ` button again 😊"
 
@@ -74,18 +74,27 @@ async def start(client, message): #fsub start
         ),
     ],
     [
-        InlineKeyboardButton(text="Add Me To Your Group 🎉", url="http://t.me/szrosebot?startgroup=new"),
+        InlineKeyboardButton(text="Add Me To Your Group 🎉", url="http://t.me/{BOT_USERNAME}?startgroup=new"),
     ],
 ]
-        
-    else:
-        button = None
     await message.reply_photo(
                     photo="https://telegra.ph/file/1804aa067b165793c6a1a.jpg",
                     reply_markup=InlineKeyboardMarkup(button),
                     caption=text.format(name, user_id))
+    else:
+    await message.reply_text(
+                    reply_markup=InlineKeyboardMarkup(botton),
+                    text=text.format(name, user_id))    
 
-
+#group start text
+toxt = """Hey there [{}](tg://user?id={})
+I am always online 
+In your Group
+"""
+#group start botton
+botton = [
+        InlineKeyboardButton(text="Contact me in PM ", url="http://t.me/{BOT_USERNAME}"),
+         ]
 
 app.start()
 LOGGER.info("""
