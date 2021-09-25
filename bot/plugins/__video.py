@@ -81,12 +81,14 @@ async def vsong(pbot, message):
         file_name,
         duration=int(ytdl_data["duration"]),
         thumb=preview,
-        caption=ytdl_data['title'],
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Join updates", url=f"https://t.me/sl_bot_zone")]]))
+        caption=ytdl_data(TEXT.format(name, user_id)),
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Join updates🗣", url=f"https://t.me/sl_bot_zone")]]))
     try:
         os.remove(file_name)
         await msg.delete()
     except Exception as e:
         print(e)
-
+TEXT = """
+🏷 Name:`'title'` 
+🎬 Requested by:[{}](tg://user?id={})"""
         
