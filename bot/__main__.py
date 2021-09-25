@@ -84,7 +84,21 @@ else:
                     photo="https://telegra.ph/file/1804aa067b165793c6a1a.jpg",
                     reply_markup=InlineKeyboardMarkup(button),
                     caption=text.format(name, user_id))
-else:
+
+#start group new msg    
+@app.on_message(filters.command("start") & filters.chat.type("Group"))
+async def start(client, message): #fsub start
+    try:
+        await message._client.get_chat_member(int("-1001325914694"), message.from_user.id)
+    except UserNotParticipant:
+        await message.reply_text(
+        text=JOIN_ASAP, disable_web_page_preview=True, reply_markup=FSUBB
+    )
+        return   #fsub end
+    chat_id = message.chat.id
+    user_id = message.from_user["id"]
+    name = message.from_user["first_name"]
+    if message.chat.type == "Group":        
     await message.reply_text(
                     reply_markup=InlineKeyboardMarkup(botton),
                     text=text.format(name, user_id))    
