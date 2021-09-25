@@ -1,12 +1,15 @@
-from pyrogram import Client
-from pyrogram import errors
-from pyrogram.types import InlineQuery
-from pyrogram.types import InlineQueryResultArticle   
-from pyrogram.types import InputTextMessageContent
-from youtubesearchpython import VideosSearch
+import os
+from bot import bot as app
 
-@Client.on_inline_query()
-async def inline(client: Client, query: InlineQuery):
+from pyrogram import Client, filters
+from youtubesearchpython import VideosSearch #important
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from pyrogram.types import User, Message, InlineQuery, InlineQueryResultArticle, InputTextMessageContent, InlineKeyboardMarkup, InlineKeyboardButton
+
+
+
+@app.on_inline_query()
+async def search(client: Client, query: InlineQuery):
     answers = []
     search_query = query.query.lower().strip().rstrip()
 
@@ -14,33 +17,38 @@ async def inline(client: Client, query: InlineQuery):
         await client.answer_inline_query(
             query.id,
             results=answers,
-            switch_pm_text="Type a YouTube video name...",
+            switch_pm_text="Type video name here..",
             switch_pm_parameter="help",
-            cache_time=0,
+            cache_time=0
         )
     else:
-        search = VideosSearch(search_query, limit=50)
+        VideosSearch = VideosSearch(search_query, limit=50)
 
-        for result in search.result()["result"]:
+        for v in VideosSearch.result()["result"]:
             answers.append(
                 InlineQueryResultArticle(
-                    title=result["title"],
-                    description="{}, {} views.".format(
-                        result["duration"], result["viewCount"]["short"]
+                    title=v["title"],
+                    description=" {} .".format(
+                       v["viewCount"]["short"]
                     ),
                     input_message_content=InputTextMessageContent(
-                        "https://www.youtube.com/watch?v={}".format(result["id"])
+                        "https://www.youtube.com/watch?v={}".format(
+                            v["id"]
+                        )
                     ),
-                    thumb_url=result["thumbnails"][0]["url"],
+                    thumb_url=v["thumbnails"][0]["url"]
                 )
             )
 
         try:
-            await query.answer(results=answers, cache_time=0)
+            await query.answer(
+                results=answers,
+                cache_time=0
+            )
         except errors.QueryIdInvalid:
             await query.answer(
                 results=answers,
                 cache_time=0,
-                switch_pm_text="Error: Search timed out",
+                switch_pm_text="**Error: Search timed out❌**",
                 switch_pm_parameter="",
             )
