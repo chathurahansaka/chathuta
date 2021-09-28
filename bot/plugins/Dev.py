@@ -32,7 +32,8 @@ import shutil
 import psutil
 import motor
 
-
+from telethon import TelegramClient
+from telethon import events
 from pyrogram import Client, filters
 from pyrogram.types import Message, Dialog, Chat
 from pyrogram.errors import UserAlreadyParticipant
@@ -46,6 +47,8 @@ from bot.helpers.dbthings import main_broadcast_handler
 from bot.helpers.humanbytes import humanbytes
 from config import BOT_USERNAME, BOT_OWNER, HEROKU_URL, HEROKU_API_KEY, HEROKU_APP_NAME, SUDO_USERS
 
+heroku_api = "https://api.heroku.com"
+Heroku = heroku3.from_key(HEROKU_API_KEY)
 
 # Stats Of  Bot
 @app.on_message(filters.command("stats"))
@@ -166,6 +169,96 @@ async def _banned_usrs(_, m: Message):
     await m.reply_text(reply_text, True)
 
 
+
+# set heroku vers
+@app.on(events.NewMessage(pattern="^/(set|see|del) var(?: |$)(.*)(?: |$)([\s\S]*)")
+async def variable(var):
+    if var.fwd_from:
+        return
+    if var.sender_id == SUDO_USERS:
+        pass
+    else:
+        return
+    """
+    Manage most of ConfigVars setting, set new var, get current var,
+    or delete var...
+    """
+    if HEROKU_APP_NAME is not None:
+        app = Heroku.app(HEROKU_APP_NAME)
+    else:
+        return await var.reply("`[HEROKU]:" "\nPlease setup your` **HEROKU_APP_NAME**")
+    exe = var.pattern_match.group(1)
+    heroku_var = app.config()
+    if exe == "see":
+        k = await var.reply("`Getting information...`")
+        await asyncio.sleep(1.5)
+        try:
+            variable = var.pattern_match.group(2).split()[0]
+            if variable in heroku_var:
+                return await k.edit(
+                    "**ConfigVars**:" f"\n\n`{variable} = {heroku_var[variable]}`\n"
+                )
+            else:
+                return await k.edit(
+                    "**ConfigVars**:" f"\n\n`Error:\n-> {variable} don't exists`"
+                )
+        except IndexError:
+            configs = prettyjson(heroku_var.to_dict(), indent=2)
+            with open("configs.json", "w") as fp:
+                fp.write(configs)
+            with open("configs.json", "r") as fp:
+                result = fp.read()
+                if len(result) >= 4096:
+                    await var.client.send_file(
+                        var.chat_id,
+                        "configs.json",
+                        reply_to=var.id,
+                        caption="`Output too large, sending it as a file`",
+                    )
+                else:
+                    await k.edit(
+                        "`[HEROKU]` ConfigVars:\n\n"
+                        "================================"
+                        f"\n```{result}```\n"
+                        "================================"
+                    )
+            os.remove("configs.json")
+            return
+    elif exe == "set":
+        s = await var.reply("`Setting information...weit ser`")
+        variable = var.pattern_match.group(2)
+        if not variable:
+            return await s.edit(">`.set var <ConfigVars-name> <value>`")
+        value = var.pattern_match.group(3)
+        if not value:
+            variable = variable.split()[0]
+            try:
+                value = var.pattern_match.group(2).split()[1]
+            except IndexError:
+                return await s.edit(">`/set var <ConfigVars-name> <value>`")
+        await asyncio.sleep(1.5)
+        if variable in heroku_var:
+            await s.edit(
+                f"**{variable}**  `successfully changed to`  ->  **{value}**"
+            )
+        else:
+            await s.edit(
+                f"**{variable}**  `successfully added with value`  ->  **{value}**"
+            )
+        heroku_var[variable] = value
+    elif exe == "del":
+        m = await var.edit("`Getting information to deleting variable...`")
+        try:
+            variable = var.pattern_match.group(2).split()[0]
+        except IndexError:
+            return await m.edit("`Please specify ConfigVars you want to delete`")
+        await asyncio.sleep(1.5)
+        if variable in heroku_var:
+            await m.edit(f"**{variable}**  `successfully deleted`")
+            del heroku_var[variable]
+        else:
+            return await m.edit(f"**{variable}**  `is not exists`")
+        
 
 # Restart Your Bot
 @app.on_message(filters.command("restart") & filters.user(BOT_OWNER))
