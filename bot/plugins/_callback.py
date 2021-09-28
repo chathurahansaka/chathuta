@@ -46,33 +46,21 @@ async def help(_, query: CallbackQuery):
         f"""⚊❮❮❮❮ Help menu off szsong bot ❯❯❯❯⚊
 """,
         reply_markup=InlineKeyboardMarkup(
-            [ 
+            [
                 [
-                    InlineKeyboardButton(
-                        "Song Download", callback_data="songback")
-                ],[
-                    InlineKeyboardButton(
-                        "lyric Download", callback_data="lyricback")
-                ],[
-                    InlineKeyboardButton(
-                        "Video Download", callback_data="videoback")
-                ],[
-                    InlineKeyboardButton(
-                        "saavn Download ", callback_data="saavnback"
-                    )
-                ],[
-                    InlineKeyboardButton(
-                        "Youtube Tag Find ", callback_data="yttagback"
-                    )    
-                ],[
-                     InlineKeyboardButton(
-                        "About", callback_data="about"
-                    )
-                ],[
-                     InlineKeyboardButton(
-                        "Search Inline🔎 ", switch_inline_query_current_chat=""
-                    )
-                    
+                    InlineKeyboardButton("Song Download", callback_data="songback"),
+                    InlineKeyboardButton("Lyrics Download", callback_data="lyricback")
+                ],
+                [
+                    InlineKeyboardButton("OVideo Download", callback_data="videoback"),
+                    InlineKeyboardButton("Saavn Download", callback_data="saavnback")
+                ],
+                [
+                    InlineKeyboardButton("Youtube tag find", callback_data="yttagback"),
+                    InlineKeyboardButton("Search inline 🔎", switch_inline_query_current_chat="")
+                ],
+                [
+                    InlineKeyboardButton("About", callback_data="about")
                 ]
             ]
         ),
