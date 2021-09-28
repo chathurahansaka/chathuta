@@ -169,3 +169,11 @@ async def _banned_usrs(_, m: Message):
 async def restart(client: Client, message: Message, hap):
     msg = await message.reply_text("`Restarting Now! Please wait...`")
     hap.restart()
+
+@app.on_message(filters.command("logs") & filters.user(BOT_OWNER))
+@_check_heroku
+async def logswen(client: Client, message: Message, happ):
+    msg = await message.reply_text("`Please Wait For a Moment!`")
+    logs = happ.get_log()
+    capt = f"Heroku Logs Of `{HEROKU_APP_NAME}`"
+    await edit_or_send_as_file(logs, msg, client, capt, "logs")
