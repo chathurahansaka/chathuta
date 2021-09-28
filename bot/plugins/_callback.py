@@ -52,7 +52,7 @@ async def help(_, query: CallbackQuery):
                     InlineKeyboardButton("Lyrics Download", callback_data="lyricback")
                 ],
                 [
-                    InlineKeyboardButton("OVideo Download", callback_data="videoback"),
+                    InlineKeyboardButton("Video Download", callback_data="videoback"),
                     InlineKeyboardButton("Saavn Download", callback_data="saavnback")
                 ],
                 [
