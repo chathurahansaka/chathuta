@@ -172,10 +172,10 @@ async def _banned_usrs(_, m: Message):
 
 # set heroku vers
 @app.on(events.NewMessage(pattern="^/(set|see|del) var(?: |$)(.*)(?: |$)([\s\S]*)")
-async def variable(var):
-    if var.fwd_from:
+async def variable(event):
+    if event.fwd_from:
         return
-    if var.sender_id == SUDO_USERS:
+    if event.sender_id == SUDO_USERS:
         pass
     else:
         return
@@ -186,14 +186,14 @@ async def variable(var):
     if HEROKU_APP_NAME is not None:
         app = Heroku.app(HEROKU_APP_NAME)
     else:
-        return await var.reply("`[HEROKU]:" "\nPlease setup your` **HEROKU_APP_NAME**")
-    exe = var.pattern_match.group(1)
+        return await event.reply("`[HEROKU]:" "\nPlease setup your` **HEROKU_APP_NAME**")
+    exe = event.pattern_match.group(1)
     heroku_var = app.config()
     if exe == "see":
-        k = await var.reply("`Getting information...`")
+        k = await event.reply("`Getting information...`")
         await asyncio.sleep(1.5)
         try:
-            variable = var.pattern_match.group(2).split()[0]
+            variable = event.pattern_match.group(2).split()[0]
             if variable in heroku_var:
                 return await k.edit(
                     "**ConfigVars**:" f"\n\n`{variable} = {heroku_var[variable]}`\n"
@@ -209,8 +209,8 @@ async def variable(var):
             with open("configs.json", "r") as fp:
                 result = fp.read()
                 if len(result) >= 4096:
-                    await var.client.send_file(
-                        var.chat_id,
+                    await event.client.send_file(
+                        event.chat_id,
                         "configs.json",
                         reply_to=var.id,
                         caption="`Output too large, sending it as a file`",
@@ -225,15 +225,15 @@ async def variable(var):
             os.remove("configs.json")
             return
     elif exe == "set":
-        s = await var.reply("`Setting information...weit ser`")
-        variable = var.pattern_match.group(2)
+        s = await event.reply("`Setting information...weit ser`")
+        variable = event.pattern_match.group(2)
         if not variable:
             return await s.edit(">`.set var <ConfigVars-name> <value>`")
-        value = var.pattern_match.group(3)
+        value = event.pattern_match.group(3)
         if not value:
             variable = variable.split()[0]
             try:
-                value = var.pattern_match.group(2).split()[1]
+                value = event.pattern_match.group(2).split()[1]
             except IndexError:
                 return await s.edit(">`/set var <ConfigVars-name> <value>`")
         await asyncio.sleep(1.5)
@@ -247,9 +247,9 @@ async def variable(var):
             )
         heroku_var[variable] = value
     elif exe == "del":
-        m = await var.edit("`Getting information to deleting variable...`")
+        m = await event.edit("`Getting information to deleting variable...`")
         try:
-            variable = var.pattern_match.group(2).split()[0]
+            variable = event.pattern_match.group(2).split()[0]
         except IndexError:
             return await m.edit("`Please specify ConfigVars you want to delete`")
         await asyncio.sleep(1.5)
