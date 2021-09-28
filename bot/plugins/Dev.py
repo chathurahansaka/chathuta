@@ -171,7 +171,6 @@ async def restart(client: Client, message: Message, hap):
     hap.restart()
 
 @app.on_message(filters.command("logs") & filters.user(BOT_OWNER))
-@_check_heroku
 async def logswen(client: Client, message: Message, happ):
     msg = await message.reply_text("`Please Wait For a Moment!`")
     logs = happ.get_log()
