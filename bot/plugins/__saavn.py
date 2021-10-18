@@ -3,6 +3,7 @@ from bot import arq
 from bot import aiohttpsession as session
 from pyrogram import filters
 from io import BytesIO
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 is_downloading = False
 
