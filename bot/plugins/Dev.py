@@ -47,7 +47,7 @@ from config import BOT_USERNAME, BOT_OWNER, HEROKU_URL, HEROKU_API_KEY, HEROKU_A
 
 
 # Stats Of  Bot
-@app.on_message(filters.command("stats") & filters.user(SUDO_USERS))
+@app.on_message(filters.command("stats"))
 async def botstats(_, message: Message):
     total, used, free = shutil.disk_usage(".")
     total = humanbytes(total)
@@ -143,7 +143,7 @@ async def unban(c: Client, m: Message):
 
 
 # Banned User List
-@app.on_message(filters.private & filters.command("banlist") & filters.user(SUDO_USERS))
+@app.on_message(filters.private & filters.command("banlist") & filters.user(BOT_OWNER))
 async def _banned_usrs(_, m: Message):
     all_banned_users = await db.get_all_banned_users()
     banned_usr_count = 0
