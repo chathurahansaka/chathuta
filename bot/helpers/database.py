@@ -4,11 +4,6 @@ import motor.motor_asyncio
 from config import DATABASE_URL, BOT_USERNAME
 from motor.motor_asyncio import AsyncIOMotorClient as MongoClient
 
-client = MongoClient()
-client = MongoClient(DATABASE_URL)
-db = client["song"]
-approved_users = db.approve
-
 class Database:
 
     def __init__(self, uri, database_name):
@@ -79,3 +74,9 @@ class Database:
         banned_users = self.col.find({'ban_status.is_banned': True})
         return banned_users
 
+
+# Database
+db = Database(DATABASE_URL, BOT_USERNAME)
+# Database for Anti-Cmd (I know what you are thinking about! but IDC)
+mongo_db_lmao = MongoClient(DATABASE_URL)
+dcmdb = mongo_db_lmao.handlers
