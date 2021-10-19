@@ -8,7 +8,8 @@ import asyncio
 import traceback
 from pyrogram.errors import FloodWait, InputUserDeactivated, UserIsBlocked, PeerIdInvalid
 
-from bot.helpers.database import db, client
+from bot.helpers.database import db
+from bot.helpers.database import mongo_db_lmao as client
 from config import LOG_CHANNEL, BROADCAST_AS_COPY
 
 async def handle_user_status(bot, cmd):
