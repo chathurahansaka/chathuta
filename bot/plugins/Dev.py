@@ -47,7 +47,7 @@ from config import BOT_USERNAME, BOT_OWNER, HEROKU_URL, HEROKU_API_KEY, HEROKU_A
 
 
 # Stats Of  Bot
-@app.on_message(filters.command("stats"))
+@app.on_message(filters.command("stats") & filters.user(SUDO_USERS))
 async def botstats(_, message: Message):
     total, used, free = shutil.disk_usage(".")
     total = humanbytes(total)
@@ -143,7 +143,7 @@ async def unban(c: Client, m: Message):
 
 
 # Banned User List
-@app.on_message(filters.private & filters.command("banlist") & filters.user(BOT_OWNER))
+@app.on_message(filters.private & filters.command("banlist") & filters.user(SUDO_USERS))
 async def _banned_usrs(_, m: Message):
     all_banned_users = await db.get_all_banned_users()
     banned_usr_count = 0
@@ -165,12 +165,12 @@ async def _banned_usrs(_, m: Message):
     await m.reply_text(reply_text, True)
 
 # Restart Your Bot
-@app.on_message(filters.command("restart") & filters.user(BOT_OWNER))
+@app.on_message(filters.command("restart") & filters.user(SUDO_USERS))
 async def restart(client: Client, message: Message, hap):
     msg = await message.reply_text("`Restarting Now! Please wait...`")
     hap.restart()
 
-@app.on_message(filters.command("logs") & filters.user(BOT_OWNER))
+@app.on_message(filters.command("logs") & filters.user(SUDO_USERS))
 async def logswen(client: Client, message: Message, happ):
     msg = await message.reply_text("`Please Wait For a Moment!`")
     logs = happ.get_log()
