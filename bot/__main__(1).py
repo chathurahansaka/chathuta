@@ -62,10 +62,7 @@ async def start(client, message): #fsub start
     if message.chat.type == "private":
         button = [
     [
-        InlineKeyboardButton(text="Help button ",  callback_data="help"),
-        InlineKeyboardButton(
-            text="Developers ✨", callback_data="dev"
-        ),
+        InlineKeyboardButton(text="Bot Owner 🇱🇰",  url="https://t.me/supunmabot")
     ],
     [
         InlineKeyboardButton(text="Updates Channel🗣", url="https://t.me/szteambots"),
@@ -74,10 +71,12 @@ async def start(client, message): #fsub start
         ),
     ],
     [
-        InlineKeyboardButton(text="Add Me To Your Group 🎉", url="http://t.me/{BOT_USERNAME}?startgroup=new"),
+        InlineKeyboardButton(text="🆘️ Help 🆘️",  callback_data="help")
+    ],
+    [
+        InlineKeyboardButton(text="➕Add Me To Your Group➕", url=f"http://t.me/{BOT_USERNAME}?startgroup=new"),
     ],
 ]
-        
     else:
         button = None
     await message.reply_photo(
