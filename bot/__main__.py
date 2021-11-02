@@ -64,8 +64,8 @@ touch on `Help` Button 👨
 """   
     await message.reply_photo(
                     photo=f"https://telegra.ph/file/f96faefb7db4da6e94e02.jpg",
-                    reply_markup=InlineKeyboardMarkup(button),
                     caption=text,
+                    reply_markup=InlineKeyboardMarkup(button),
                     disable_web_page_preview=True)
 button = [
     [
