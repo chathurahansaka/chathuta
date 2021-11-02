@@ -26,8 +26,7 @@ from bot import LOGGER
 from pyrogram.errors import UserNotParticipant
 from bot.plugins import *
 from pyrogram import idle, filters
-from config import BOT_USERNAME, photo
-from helpers.commands import show_status_count
+from config import BOT_USERNAME
 
 JOIN_ASAP = " **You cant use me untill subscribe our updates channel** ☹️\n\n So Please join our updates channel by the following button and hit on the ` /start ` button again 😊"
 
@@ -57,19 +56,19 @@ If you want to know how to use me just
 touch on `Help` Button 👨
 
 ☬─────────────☬
-🤟 Bot Owner :- [IMkashyapaa ](https://t.me/IMkashyapaa)
+🤟 Bot Owner :- [supunma](https://t.me/supunmabot)
 🦅 Powered By :- `【SZ™】`
 ☬─────────────☬
 
 ⚠️copyright ©️ 2021 [szteambots](https://t.me/szteambots). ** All Rights Reserved** 
 """   
     await message.reply_photo(
-                    photo=f"{photo}",
+                    photo=f"https://telegra.ph/file/f96faefb7db4da6e94e02.jpg",
                     reply_markup=InlineKeyboardMarkup(button),
                     caption=text)
 button = [
     [
-        InlineKeyboardButton(text="Bot Owner 🤟",  url="https://t.me/IMkashyapaa"),
+        InlineKeyboardButton(text="Bot Owner 🇱🇰",  url="https://t.me/supunmabot"),
         InlineKeyboardButton(
             text="Bot's statistics✨", callback_data="stat_callback"
         ),
@@ -81,17 +80,13 @@ button = [
         ),
     ],
     [
-        InlineKeyboardButton(text="Help",  callback_data="help")
+        InlineKeyboardButton(text="🆘️ Help 🆘️",  callback_data="help")
     ],
     [
-        InlineKeyboardButton(text="Add Me To Your Group 🎉", url=f"http://t.me/{BOT_USERNAME}?startgroup=new"),
+        InlineKeyboardButton(text="➕Add Me To Your Group➕", url=f"http://t.me/{BOT_USERNAME}?startgroup=new"),
     ],
 ]
 
-@app.on_callback_query(filters.regex("stat_callback"))
-async def stat_callbacc(_, CallbackQuery):
-    text = await show_status_count
-    await app.answer_callback_query(CallbackQuery.id, text, show_alert=True)            
 
 
 
@@ -102,6 +97,6 @@ LOGGER.info("""
 ┣━┃┏┫╋┗┫┏┫┏┫┻┫╋┃┃╋┃╋┃┏┫
 ┗━┻━┻━━┻┛┗━┻━┻━┛┗━┻━┻━┛
 ⚊❮❮❮❮  I am supun  ❯❯❯❯⚊
-⚊❮❮❮❮  Join @sl_bot_zone ❯❯❯❯⚊
+⚊❮❮❮❮  Join @szteambots ❯❯❯❯⚊
 """)
 idle()
