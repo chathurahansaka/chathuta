@@ -72,7 +72,7 @@ button = [
 ]
 
 
-@app.on_message(filters.command('[start]'))
+@app.on_message(filters.command('start'))
 async def start(client, message): #fsub start
     try:
         await message._client.get_chat_member(int("-1001325914694"), message.from_user.id)
