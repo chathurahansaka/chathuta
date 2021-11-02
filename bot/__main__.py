@@ -34,7 +34,7 @@ JOIN_ASAP = " **You cant use me untill subscribe our updates channel** ☹️\n\
 
 FSUBB = InlineKeyboardMarkup(
         [[
-        InlineKeyboardButton(text="Join our update Channel 🗣", url=f"https://t.me/sl_bot_zone") 
+        InlineKeyboardButton(text="Join our update Channel 🗣", url=f"https://t.me/szteambots") 
         ]]      
     )
 
@@ -68,7 +68,7 @@ async def start(client, message): #fsub start
         ),
     ],
     [
-        InlineKeyboardButton(text="Updates Channel🗣", url="https://t.me/SL_bot_zone"),
+        InlineKeyboardButton(text="Updates Channel🗣", url="https://t.me/szteambots"),
         InlineKeyboardButton(
             text=" Support Group👥", url="https://t.me/slbotzone"
         ),
