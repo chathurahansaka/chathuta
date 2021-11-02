@@ -65,13 +65,11 @@ touch on `Help` Button 👨
     await message.reply_photo(
                     photo=f"https://telegra.ph/file/f96faefb7db4da6e94e02.jpg",
                     reply_markup=InlineKeyboardMarkup(button),
-                    caption=text)
+                    caption=text,
+                    disable_web_page_preview=True)
 button = [
     [
-        InlineKeyboardButton(text="Bot Owner 🇱🇰",  url="https://t.me/supunmabot"),
-        InlineKeyboardButton(
-            text="Bot's statistics✨", callback_data="stat_callback"
-        ),
+        InlineKeyboardButton(text="Bot Owner 🇱🇰",  url="https://t.me/supunmabot")
     ],
     [
         InlineKeyboardButton(text="Updates Channel🗣", url="https://t.me/szteambots"),
