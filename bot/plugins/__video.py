@@ -84,7 +84,7 @@ async def vsong(pbot, message):
         duration=int(ytdl_data["duration"]),
         thumb=preview,
         caption=rep,
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Updates Channel📢", url=f"https://t.me/sl_bot_zone")]]))
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Updates Channel📢", url=f"https://t.me/sszteambots")]]))
     try:
         os.remove(file_name)
         await msg.delete()
