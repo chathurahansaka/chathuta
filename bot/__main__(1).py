@@ -41,10 +41,19 @@ FSUBB = InlineKeyboardMarkup(
 text = """
 Hello [{}](tg://user?id={}) 👋
 
-I am advance song bot with more features
+I am sz song Downloader Bot
+You can download any song useing me
+I can search song useing voice clip
 
-If you want to know how to use this bot just
+If you want to know how to use me just
 touch on `Help` Button 👨
+
+☬─────────────☬
+🤟 Bot Owner :- [supunma](https://t.me/supunmabot)
+🦅 Powered By :- `【SZ™】`
+☬─────────────☬
+
+⚠️copyright ©️ 2021 [szteambots](https://t.me/szteambots). ** All Rights Reserved** 
 """
 
 @app.on_message(filters.command("start"))
