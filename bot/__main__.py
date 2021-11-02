@@ -36,17 +36,8 @@ FSUBB = InlineKeyboardMarkup(
         ]]      
     )
 
-@app.on_message(filters.command('[start]'))
-async def start(client, message): #fsub start
-    try:
-        await message._client.get_chat_member(int("-1001325914694"), message.from_user.id)
-    except UserNotParticipant:
-        await message.reply_text(
-        text=JOIN_ASAP, disable_web_page_preview=True, reply_markup=FSUBB
-    )
-        return   #fsub end
-    text = f"""
-Hello {message.from_user.mention} 👋
+text = """
+Hello friends 👋
 
 I am sz song Downloader Bot
 You can download any song useing me
@@ -61,12 +52,7 @@ touch on `Help` Button 👨
 ☬─────────────☬
 
 ⚠️copyright ©️ 2021 [szteambots](https://t.me/szteambots). ** All Rights Reserved** 
-"""   
-    await message.reply_photo(
-                    photo=f"https://telegra.ph/file/f96faefb7db4da6e94e02.jpg",
-                    caption=text,
-                    reply_markup=InlineKeyboardMarkup(button),
-                    disable_web_page_preview=True)
+"""
 button = [
     [
         InlineKeyboardButton(text="Bot Owner 🇱🇰",  url="https://t.me/supunmabot")
@@ -85,6 +71,21 @@ button = [
     ],
 ]
 
+
+@app.on_message(filters.command('[start]'))
+async def start(client, message): #fsub start
+    try:
+        await message._client.get_chat_member(int("-1001325914694"), message.from_user.id)
+    except UserNotParticipant:
+        await message.reply_text(
+        text=JOIN_ASAP, disable_web_page_preview=True, reply_markup=FSUBB
+    )
+        return   #fsub end   
+    await message.reply_photo(
+                    photo=f"https://telegra.ph/file/f96faefb7db4da6e94e02.jpg",
+                    caption=text,
+                    reply_markup=InlineKeyboardMarkup(button),
+                    disable_web_page_preview=True)
 
 
 
