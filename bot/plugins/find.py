@@ -81,7 +81,7 @@ async def shazamm(client, message):
         return
     sz = await edit_or_reply(message, "**🔎 Searching your audio...**",disable_web_page_preview=True)
     if not message.reply_to_message:
-        await sz.edit(f"Please **Reply To an Audio File** to find \nsong or use this format to find songs\n\n `/find alone` \n\n Need any Help [join updates channel](https://t.me/szteambots) or [supprt group](https://t.me/slbotzone) ")
+        await sz.edit(f"👤Please **Reply To an Audio File** to find \nsong or use this format to find songs\n\n `/find alone` \n\n Need any Help [join updates channel](https://t.me/szteambots) or [supprt group](https://t.me/slbotzone) ")
         return
     if os.path.exists("friday.mp3"):
         os.remove("friday.mp3")
