@@ -65,18 +65,18 @@ button = InlineKeyboardMarkup(
 async def help(client, message):
     text = f"""
 Hello {message.from_user.mention} 👋 This is szsongbot Help menu
-Use Bellow Format to get song / video / lyric /saavn 
+Use Bellow Format to get song / video / lyric / saavn 
 
-✮ /song <song name >
+✮ /song `<song name >´
 
-✮ /lyric <lyric name >
+✮ /lyric `<lyric name >´
 
-✮ /video <video name >
+✮ /video `<video name >´
 
-✮ /saavn <saavn name >
+✮ /saavn `<saavn name >´
 
 ☬─────────────☬
-🤟 Bot Owner :- [supunma](https://t.me/supunmabot)
+🤟 Bot Owner :- [supun](https://t.me/supunmabot)
 🦅 Powered By :- `【SZ™】`
 ☬─────────────☬
 
@@ -91,3 +91,40 @@ Use Bellow Format to get song / video / lyric /saavn
 @app.on_callback_query(filters.regex("cls"))
 async def close(_, query: CallbackQuery):
     await query.message.delete()
+
+@app.on_callback_query(filters.regex("help"))
+async def hbout(_, query: CallbackQuery):
+    await query.edit_message_text(
+         f"""
+Hello {message.from_user.mention} 👋 This is szsongbot Help menu
+Use Bellow Format to get song / video / lyric / saavn 
+
+✮ /song `<song name >´
+
+✮ /lyric `<lyric name >´
+
+✮ /video `<video name >´
+
+✮ /saavn `<saavn name >´
+
+☬─────────────☬
+🤟 Bot Owner :- [supun](https://t.me/supunmabot)
+🦅 Powered By :- `【SZ™】`
+☬─────────────☬
+
+⚠️copyright ©️ 2021 [szteambots](https://t.me/szteambots). ** All Rights Reserved** 
+""",
+       reply_markup = InlineKeyboardMarkup(
+            [ 
+                [       
+                     InlineKeyboardButton("🎭 About Bot", callback_data="about")
+                ],
+                [
+                     InlineKeyboardButton( "🗑Close🗑 ", callback_data="cls")
+                ]
+            ]
+        ),
+      disable_web_page_preview=True
+    )  
+
+
