@@ -25,7 +25,13 @@ FSUBB = InlineKeyboardMarkup(
 
 @app.on_message(filters.command(['song']))
 def song(client, message):
-
+    try:
+        await message._client.get_chat_member(int("-1001325914694"), message.from_user.id)
+    except UserNotParticipant:
+        await message.reply_text(
+        text=JOIN_ASAP, disable_web_page_preview=True, reply_markup=FSUBB
+    )
+        return
     user_id = message.from_user.id 
     user_name = message.from_user.first_name 
     rpk = "["+user_name+"](tg://user?id="+str(user_id)+")"
@@ -34,13 +40,6 @@ def song(client, message):
     for i in message.command[1:]:
         query += ' ' + str(i)
     print(query)
-    try:
-        await message._client.get_chat_member(int("-1001325914694"), message.from_user.id)
-    except UserNotParticipant:
-        await message.reply_text(
-        text=JOIN_ASAP, disable_web_page_preview=True, reply_markup=FSUBB
-    )
-        return
     m = message.reply('🔎 Searching your song...')
     ydl_opts = {"format": "bestaudio[ext=m4a]"}
     try:
@@ -79,12 +78,12 @@ def song(client, message):
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
-        rep = f'🎙 **Title**: [{title[:35]}]({link})\n🎬 **Source**: `YouTube`\n⏱️ **Duration**: `{duration}`\n👁‍🗨 **Views**: `{views}`\n**🎧 Requested by:** {message.from_user.mention}\n\n 🤟Downloaded By : @szsongbot '
+        rep = f'🎙 **Title**: [{title[:35]}]({link})\n🎬 **Source**: `YouTube`\n⏱️ **Duration**: `{duration}`\n👁‍🗨 **Views**: `{views}`\n**🎧 Requested by:** `{message.from_user.mention}´\n\n 🤟Downloaded By : @szsongbot '
         secmul, dur, dur_arr = 1, 0, duration.split(':')
         for i in range(len(dur_arr)-1, -1, -1):
             dur += (int(dur_arr[i]) * secmul)
             secmul *= 60
-        message.reply_audio(audio_file, caption=rep,reply_markup= button,thumb=thumb_name, parse_mode='md', title=title, duration=dur,disable_web_page_preview=True)
+        message.reply_audio(audio_file, caption=rep,reply_markup= button,thumb=thumb_name, parse_mode='md', title=title)
         m.delete()
     except Exception as e:
         m.edit('❌ some error')
