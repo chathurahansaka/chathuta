@@ -25,3 +25,5 @@ pymongo
 
 #arq
 python-arq
+
+json
