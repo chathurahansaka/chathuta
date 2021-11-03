@@ -45,7 +45,8 @@ async def jssong(_, message):
             title=sname,
             performer=ssingers,
             duration=sduration,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Join updates🗣", url=f"https://t.me/szteambots")]]),
+            caption="🤟Downloaded By : @szsongbot",
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔔Join updates", url=f"https://t.me/szteambots")]]),
         )
         await m.delete()
     except Exception as e:
