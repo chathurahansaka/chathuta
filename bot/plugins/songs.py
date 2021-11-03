@@ -25,7 +25,7 @@ from bot import bot as app
 from pyrogram import idle, filters
 import requests
 import youtube_dl
-from pyrogram import filters, Client
+from pyrogram import filters
 from youtube_search import YoutubeSearch
 from bot.helpers.fsub import fsub
 
@@ -35,7 +35,7 @@ def time_to_seconds(time):
 
 @app.on_message(filters.command('song'))
 @fsub()
-async def songdownload(client, message):
+async def songdownload(_, message):
 
     user_id = message.from_user.id 
     user_name = message.from_user.first_name 
