@@ -6,6 +6,7 @@ import youtube_dl
 from pyrogram import filters
 from bot import bot as app
 from youtube_search import YoutubeSearch
+from pyrogram.types import  InlineKeyboardMarkup, InlineKeyboardButton
 
 
 def time_to_seconds(time):
