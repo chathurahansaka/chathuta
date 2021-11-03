@@ -20,25 +20,19 @@
 #OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #SOFTWARE.
 # Plugin by @Mr_Dark_Prince
-
-
 import os
-import requests
-import aiohttp
-import youtube_dl
-
 from bot import bot as app
+from pyrogram import idle, filters
+import requests
+import youtube_dl
 from pyrogram import filters, Client
 from youtube_search import YoutubeSearch
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InputTextMessageContent
-from bot.helpers.fsub import fsub
 
 def time_to_seconds(time):
     stringt = str(time)
     return sum(int(x) * 60 ** i for i, x in enumerate(reversed(stringt.split(':'))))
 
 @app.on_message(filters.command('song'))
-@fsub()
 def song(client, message):
 
     user_id = message.from_user.id 
@@ -49,7 +43,7 @@ def song(client, message):
     for i in message.command[1:]:
         query += ' ' + str(i)
     print(query)
-    m = message.reply('🔎 Searching your song...')
+    m = message.reply('🔎 Searching...')
     ydl_opts = {"format": "bestaudio[ext=m4a]"}
     try:
         results = YoutubeSearch(query, max_results=1).to_dict()
@@ -67,25 +61,25 @@ def song(client, message):
 
     except Exception as e:
         m.edit(
-            "❌ Found Nothing.\n\nTry another keywork or maybe spell it properly."
+            "❌ Nothing Found."
         )
         print(str(e))
         return
-    m.edit("`Downloading Song... Please wait ⏱`")
+    m.edit("📥 Downloading...")
     try:
         with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-            rep = f'🎙 **Title**: [{title[:35]}]({link})\n🎬 **Source**: `YouTube`\n⏱️ **Duration**: `{duration}`\n👁‍🗨 **Views**: `{views}`\n📤 **By**: @szrosebot🇱🇰 '
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
+        rep = '** Done **'
         secmul, dur, dur_arr = 1, 0, duration.split(':')
         for i in range(len(dur_arr)-1, -1, -1):
             dur += (int(dur_arr[i]) * secmul)
             secmul *= 60
-        s = message.reply_audio(audio_file, caption=rep, thumb=thumb_name, parse_mode='md', title=title, duration=dur,  reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Join updates", url=f"https://t.me/sl_bot_zone")]]))
+        s = message.reply_audio(audio_file, caption=rep, thumb=thumb_name, parse_mode='md', title=title, duration=dur)
         m.delete()
     except Exception as e:
-        m.edit('❌ some error')
+        m.edit('❌ දොෂයක් ඇති විය.')
         print(e)
 
     try:
