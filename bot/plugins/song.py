@@ -34,6 +34,13 @@ def song(client, message):
     for i in message.command[1:]:
         query += ' ' + str(i)
     print(query)
+    try:
+        await message._client.get_chat_member(int("-1001325914694"), message.from_user.id)
+    except UserNotParticipant:
+        await message.reply_text(
+        text=JOIN_ASAP, disable_web_page_preview=True, reply_markup=FSUBB
+    )
+        return
     m = message.reply('🔎 Searching your song...')
     ydl_opts = {"format": "bestaudio[ext=m4a]"}
     try:
@@ -77,7 +84,7 @@ def song(client, message):
         for i in range(len(dur_arr)-1, -1, -1):
             dur += (int(dur_arr[i]) * secmul)
             secmul *= 60
-        message.reply_audio(audio_file, caption=rep,reply_markup= button,thumb=thumb_name, parse_mode='md', title=title, duration=dur)
+        message.reply_audio(audio_file, caption=rep,reply_markup= button,thumb=thumb_name, parse_mode='md', title=title, duration=dur,disable_web_page_preview=True)
         m.delete()
     except Exception as e:
         m.edit('❌ some error')
