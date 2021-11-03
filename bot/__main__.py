@@ -34,8 +34,9 @@ from bot.helpers.fsub import fsub
 text = """
 Hello [{}](tg://user?id={}) 👋
 
-I am sz song Downloader Bot
-You can download any song useing me
+I am **sz song Downloader Bot**
+
+🎧You can download any song useing me
 I can search song useing voice clip
 
 If you want to know how to use me just
@@ -67,7 +68,7 @@ async def start(client, message): #fsub start
         ),
     ],
     [
-        InlineKeyboardButton(text="🆘️ Help 🆘️",  callback_data="help")
+        InlineKeyboardButton(text="🆘️ Help 🆘️",  callback_data="xelp")
     ],
     [
         InlineKeyboardButton(text="➕Add Me To Your Group➕", url=f"http://t.me/{BOT_USERNAME}?startgroup=new"),
