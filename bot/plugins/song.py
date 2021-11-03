@@ -15,6 +15,13 @@ def time_to_seconds(time):
     stringt = str(time)
     return sum(int(x) * 60 ** i for i, x in enumerate(reversed(stringt.split(':'))))
 
+JOIN_ASAP = " **You cant use me untill subscribe our updates channel** ☹️\n\n So Please join our updates channel by the following button and hit on the ` /song` command again 😊"
+
+FSUBB = InlineKeyboardMarkup(
+        [[
+        InlineKeyboardButton(text="Join our update Channel 🗣", url=f"https://t.me/szteambots") 
+        ]]      
+    )
 
 @app.on_message(filters.command(['song']))
 def song(client, message):
