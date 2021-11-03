@@ -61,7 +61,7 @@ button = InlineKeyboardMarkup(
         )
     
 
-@app.on_message(filters.command('[help]'))
+@app.on_message(filters.command("help"))
 async def help(client, message):
     text = f"""
 Hello {message.from_user.mention} 👋 This is szsongbot Help menu
