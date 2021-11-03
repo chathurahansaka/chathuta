@@ -81,7 +81,7 @@ def song(client, message):
         s = message.reply_audio(audio_file, caption=rep, thumb=thumb_name, parse_mode='md', title=title, duration=dur)
         m.delete()
     except Exception as e:
-        m.edit('❌ දොෂයක් ඇති විය.')
+        m.edit('❌ Error.')
         print(e)
 
     try:
