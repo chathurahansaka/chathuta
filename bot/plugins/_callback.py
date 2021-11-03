@@ -84,7 +84,7 @@ Use Bellow Format to get song / video / lyric /saavn
 """   
     await message.reply_photo(
                     photo=f"https://telegra.ph/file/d811f0125cb6cc5932780.jpg",
-                    reply_markup=InlineKeyboardMarkup(button),
+                    reply_markup=button,
                     caption=text,
                     disable_web_page_preview=True)
 
