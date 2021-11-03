@@ -25,21 +25,20 @@ FSUBB = InlineKeyboardMarkup(
 
 @app.on_message(filters.command(['song']))
 def song(client, message):
-    try:
-        message._client.get_chat_member(int("-1001325914694"), message.from_user.id)
-    except UserNotParticipant:
-        message.reply_text(
-        text=JOIN_ASAP, disable_web_page_preview=True, reply_markup=FSUBB
-    )
-        return
     user_id = message.from_user.id 
     user_name = message.from_user.first_name 
     rpk = "["+user_name+"](tg://user?id="+str(user_id)+")"
-
     query = ''
     for i in message.command[1:]:
         query += ' ' + str(i)
     print(query)
+    try:
+        await message._client.get_chat_member(int("-1001325914694"), message.from_user.id)
+    except UserNotParticipant:
+        await message.reply_text(
+        text=JOIN_ASAP, disable_web_page_preview=True, reply_markup=FSUBB
+    )
+        return
     m = message.reply('🔎 Searching your song...')
     ydl_opts = {"format": "bestaudio[ext=m4a]"}
     try:
@@ -72,7 +71,7 @@ def song(client, message):
         )
         print(str(e))
         return
-    m.edit("`Downloading Song... Please wait ⏱`")
+    m.edit("Downloading Song... Please wait ⏱")
     try:
         with youtube_dl.YoutubeDL(ydl_opts) as ydl:
             info_dict = ydl.extract_info(link, download=False)
