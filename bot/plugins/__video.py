@@ -87,7 +87,7 @@ async def vsong(pbot, message):
         reply_markup= button)
     try:
         os.remove(file_name)
-        await msg.delete()
+        msg.delete()
     except Exception as e:
         print(e)
         
