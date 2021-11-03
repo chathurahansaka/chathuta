@@ -21,23 +21,12 @@
 #SOFTWARE.
 
 from __future__ import unicode_literals
-
-import asyncio
-import math
 import os
-import time
 import wget
-from random import randint
-from urllib.parse import urlparse
-
-import aiofiles
-import aiohttp
 import requests
-import youtube_dl
 from yt_dlp import YoutubeDL
-from pyrogram import Client, filters
-from pyrogram.errors import FloodWait, MessageNotModified
-from pyrogram.types import *
+from pyrogram import  filters
+from pyrogram.types import  InlineKeyboardMarkup, InlineKeyboardButton
 from youtube_search import YoutubeSearch
 
 
@@ -66,13 +55,24 @@ async def vsong(pbot, message):
         views = results[0]["views"]
         results[0]["url_suffix"]
         results[0]["views"]
+        button = InlineKeyboardMarkup(
+    [
+        [
+            InlineKeyboardButton("Watch On Youtube🎬", url=f"{link}")
+        ],
+        [
+            InlineKeyboardButton("Support Chat 🔥️", url=f"https://t.me/slbotzone")
+        ]
+    ]
+    
+    )
         rby = message.from_user.mention
     except Exception as e:
         print(e)
     try:
         msg = await message.reply("📥 **downloading video...**")
         with YoutubeDL(ydl_opts) as ytdl:
-            rep = f'🎙 **Title**: [{title[:35]}]({link})\n🎬 **Source**: `YouTube`\n⏱️ **Duration**: `{duration}`\n👁‍🗨 **Views**: `{views}`\n📤 **By**: @szsongbot 🇱🇰 '
+            rep = f'🏷 **Video name**: [{title[:35]}]({link})\n⏱️ **Video Duration**: `{duration}`\n👁‍🗨 **Video Views**: `{views}`\n**🎧 Requested by:** {message.from_user.mention}\n 🤟Downloaded By : @szsongbot '
             ytdl_data = ytdl.extract_info(link, download=True)
             file_name = ytdl.prepare_filename(ytdl_data)
     except Exception as e:
@@ -84,7 +84,7 @@ async def vsong(pbot, message):
         duration=int(ytdl_data["duration"]),
         thumb=preview,
         caption=rep,
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Updates Channel📢", url=f"https://t.me/sszteambots")]]))
+        reply_markup= button)
     try:
         os.remove(file_name)
         await msg.delete()
