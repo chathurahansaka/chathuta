@@ -30,6 +30,21 @@ from pyrogram import idle, filters
 from bot.plugins.Dev import *
 from config import BOT_USERNAME
 
+#Fsub
+def fsub():
+    def fsubfunc(func):
+        @wraps(func)
+        async def checkfsub(_, message, *args, **kwargs):
+            try:
+                await message._client.get_chat_member(int("-1001325914694"), message.from_user.id)
+            except UserNotParticipant:
+               return await message.reply_text(
+        text=" **You cant use me untill subscribe our updates channel** ☹️\n\n So Please join our updates channel by the following button and hit on the ` /start ` button again 😊", disable_web_page_preview=True, 
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Join our update Channel 🗣", url="https://t.me/szteambots") ]]))
+            return await func(_, message, *args, **kwargs)
+        return checkfsub
+    return fsubfunc
+
 JOIN_ASAP = " **You cant use me untill subscribe our updates channel** ☹️\n\n So Please join our updates channel by the following button and hit on the ` /start ` button again 😊"
 
 FSUBB = InlineKeyboardMarkup(
@@ -57,14 +72,8 @@ touch on `Help` Button 👨
 """
 
 @app.on_message(filters.command("start"))
+@fsub()
 async def start(client, message): #fsub start
-    try:
-        await message._client.get_chat_member(int("-1001325914694"), message.from_user.id)
-    except UserNotParticipant:
-        await message.reply_text(
-        text=JOIN_ASAP, disable_web_page_preview=True, reply_markup=FSUBB
-    )
-        return   #fsub end
     chat_id = message.chat.id
     user_id = message.from_user["id"]
     name = message.from_user["first_name"]
