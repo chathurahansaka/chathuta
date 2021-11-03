@@ -22,7 +22,6 @@
 
 from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, Chat, CallbackQuery 
-from config import photo
 from bot import bot as app
 
     
@@ -31,7 +30,7 @@ async def about(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""
 ✨ Bot :  [Song Downloader Bot](https://t.me/szsongbot)
-✨ Owner : [IMkashyapaa ](https://telegram.me/IMkashyapaa )
+✨ Owner : [supunmabot](https://telegram.me/supunmabot)
 ✨ Updates Channel :  [Updates ](https://telegram.me/szteambots)
 ✨ Support Group : [Support ](https://telegram.me/slbotzone)
 ✨ Language : [Python3 ](https://python.org/)
@@ -42,7 +41,7 @@ async def about(_, query: CallbackQuery):
             [ 
                 [
                      InlineKeyboardButton(
-                        "❌ Close ", callback_data="cls"
+                        "🗑Close🗑", callback_data="cls"
                     )
                 ]
             ]
@@ -56,7 +55,7 @@ button = InlineKeyboardMarkup(
                      InlineKeyboardButton("🎭 About Bot", callback_data="about")
                 ],
                 [
-                     InlineKeyboardButton( "❌ Close ", callback_data="cls")
+                     InlineKeyboardButton( "🗑Close🗑 ", callback_data="cls")
                 ]
             ]
         )
@@ -77,14 +76,14 @@ Use Bellow Format to get song / video / lyric /saavn
 ✮ /saavn <saavn name >
 
 ☬─────────────☬
-🤟 Bot Owner :- [IMkashyapaa ](https://t.me/IMkashyapaa)
+🤟 Bot Owner :- [supunma](https://t.me/supunmabot)
 🦅 Powered By :- `【SZ™】`
 ☬─────────────☬
 
 ⚠️copyright ©️ 2021 [szteambots](https://t.me/szteambots). ** All Rights Reserved** 
 """   
     await message.reply_photo(
-                    photo=f"{photo}",
+                    photo=f"https://telegra.ph/file/d811f0125cb6cc5932780.jpg",
                     reply_markup=InlineKeyboardMarkup(button),
                     caption=text,
                     disable_web_page_preview=True)
