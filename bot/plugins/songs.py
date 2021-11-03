@@ -47,7 +47,7 @@ FSUBB = InlineKeyboardMarkup(
 
 
 
-@app.on_message(filters.command(['song']) & ~filters.edited)
+@app.on_message(filters.command("song") & ~filters.edited)
 async def song(client, message):
     try:
         await message._client.get_chat_member(int("-1001325914694"), message.from_user.id)
