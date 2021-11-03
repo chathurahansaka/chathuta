@@ -7,6 +7,8 @@ from pyrogram import filters
 from bot import bot as app
 from youtube_search import YoutubeSearch
 from pyrogram.types import  InlineKeyboardMarkup, InlineKeyboardButton
+from pyrogram.errors import UserAlreadyParticipant
+from pyrogram.errors import UserNotParticipant, ChatAdminRequired, UsernameNotOccupied
 
 
 def time_to_seconds(time):
