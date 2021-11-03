@@ -7,21 +7,11 @@ from pyrogram import filters
 from bot import bot as app
 from youtube_search import YoutubeSearch
 from pyrogram.types import  InlineKeyboardMarkup, InlineKeyboardButton
-from pyrogram.errors import UserAlreadyParticipant
-from pyrogram.errors import UserNotParticipant, ChatAdminRequired, UsernameNotOccupied
-
 
 def time_to_seconds(time):
     stringt = str(time)
     return sum(int(x) * 60 ** i for i, x in enumerate(reversed(stringt.split(':'))))
 
-JOIN_ASAP = " **You cant use me untill subscribe our updates channel** ☹️\n\n So Please join our updates channel by the following button and hit on the ` /song` command again 😊"
-
-FSUBB = InlineKeyboardMarkup(
-        [[
-        InlineKeyboardButton(text="Join our update Channel 🗣", url=f"https://t.me/szteambots") 
-        ]]      
-    )
 
 @app.on_message(filters.command(['song']))
 def song(client, message):
@@ -32,13 +22,7 @@ def song(client, message):
     for i in message.command[1:]:
         query += ' ' + str(i)
     print(query)
-    try:
-        await message._client.get_chat_member(int("-1001325914694"), message.from_user.id)
-    except UserNotParticipant:
-        await message.reply_text(
-        text=JOIN_ASAP, disable_web_page_preview=True, reply_markup=FSUBB
-    )
-        return
+    
     m = message.reply('🔎 Searching your song...')
     ydl_opts = {"format": "bestaudio[ext=m4a]"}
     try:
