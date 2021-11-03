@@ -27,12 +27,14 @@ import requests
 import youtube_dl
 from pyrogram import filters, Client
 from youtube_search import YoutubeSearch
+from bot.helpers.fsub import fsub
 
 def time_to_seconds(time):
     stringt = str(time)
     return sum(int(x) * 60 ** i for i, x in enumerate(reversed(stringt.split(':'))))
 
 @app.on_message(filters.command('song'))
+@fsub()
 def song(client, message):
 
     user_id = message.from_user.id 
