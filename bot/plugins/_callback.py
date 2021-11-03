@@ -67,13 +67,13 @@ async def help(client, message):
 Hello {message.from_user.mention} 👋 This is szsongbot Help menu
 Use Bellow Format to get song / video / lyric / saavn 
 
-✮ /song `<song name >´
+✮ /song song name
 
-✮ /lyric `<lyric name >´
+✮ /lyric lyric name 
 
-✮ /video `<video name >´
+✮ /video video name
 
-✮ /saavn `<saavn name >´
+✮ /saavn saavn name 
 
 ☬─────────────☬
 🤟 Bot Owner :- [supun](https://t.me/supunmabot)
@@ -92,20 +92,20 @@ Use Bellow Format to get song / video / lyric / saavn
 async def close(_, query: CallbackQuery):
     await query.message.delete()
 
-@app.on_callback_query(filters.regex("help"))
-async def hbout(_, query: CallbackQuery):
+@app.on_callback_query(filters.regex("xelp"))
+async def xelp(_, query: CallbackQuery):
     await query.edit_message_text(
          f"""
 Hello {message.from_user.mention} 👋 This is szsongbot Help menu
 Use Bellow Format to get song / video / lyric / saavn 
 
-✮ /song `<song name >´
+✮ /song song name 
 
-✮ /lyric `<lyric name >´
+✮ /lyric lyric name
 
-✮ /video `<video name >´
+✮ /video video name 
 
-✮ /saavn `<saavn name >´
+✮ /saavn saavn name 
 
 ☬─────────────☬
 🤟 Bot Owner :- [supun](https://t.me/supunmabot)
