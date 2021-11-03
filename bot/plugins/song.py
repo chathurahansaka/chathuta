@@ -26,9 +26,9 @@ FSUBB = InlineKeyboardMarkup(
 @app.on_message(filters.command(['song']))
 def song(client, message):
     try:
-        await message._client.get_chat_member(int("-1001325914694"), message.from_user.id)
+        message._client.get_chat_member(int("-1001325914694"), message.from_user.id)
     except UserNotParticipant:
-        await message.reply_text(
+        message.reply_text(
         text=JOIN_ASAP, disable_web_page_preview=True, reply_markup=FSUBB
     )
         return
