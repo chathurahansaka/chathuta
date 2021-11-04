@@ -23,12 +23,15 @@
 import os
 
 class Config(object):
+	API_ID = int(os.environ.get("API_ID"))	
+	API_HASH = os.environ.get("API_HASH")	
 	BOT_USERNAME = os.environ.get("BOT_USERNAME")
+	BOT_TOKEN = os.environ.get("BOT_TOKEN")	
 	BOT_OWNER = int(os.environ.get("BOT_OWNER"))
 	DATABASE_URL = os.environ.get("DATABASE_URL")
 	FSUB_CHANNEL = os.environ.get("FSUB_CHANNEL")
 	LOG_CHANNEL = os.environ.get("LOG_CHANNEL")
-        BOT_USERNAME = os.getenv("BOT_USERNAME")
+        BOT_USERNAME = os.environ.get("BOT_USERNAME")
 	BROADCAST_AS_COPY = bool(os.environ.get("BROADCAST_AS_COPY"))
 	ARQ_API_KEY = os.getenv("ARQ_API_KEY")
 	HEROKU_URL = os.getenv("HEROKU_URL")
@@ -37,7 +40,5 @@ class Config(object):
 	BOT_OWNER = os.getenv("BOT_OWNER")
 	UPSTREAM_REPO = os.getenv("UPSTREAM_REPO")
 	U_BRANCH = os.getenv("U_BRANCH")
-	API_ID = int(os.getenv("API_ID"))
 	API_HASH = os.getenv("API_HASH")
-	BOT_TOKEN = os.getenv("BOT_TOKEN")
 	SUDO_USERS = os.getenv("SUDO_USERS")
