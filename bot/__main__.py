@@ -54,17 +54,7 @@ touch on `Help` Button 👨
 
 @app.on_message(filters.command("start"))
 @fsub()                         
-async def start(client, Message):
-    usr_cmd = message.text.split("_")[-1]
-    if usr_cmd == "/start":
-        chat_id = message.chat.id
-        if not await db.is_user_exist(chat_id):
-            await db.add_user(chat_id)
-            await Client.send_message(
-        chat_id=LOG_CHANNEL,
-        text=f"**🔔 News ** \n@szsongbot **Started To Using Me** \n\nFirst Name: `{message.from_user.first_name}` \nUser ID: `{message.from_user.id}` \nuser link : [{message.from_user.first_name}](tg://user?id={message.from_user.id})\nusername : {message.from_user.username} ",
-        parse_mode="markdown"
-    )      
+async def start(client, Message): 
     chat_id = message.chat.id
     user_id = message.from_user["id"]
     name = message.from_user["first_name"]
@@ -92,6 +82,7 @@ async def start(client, Message):
                     photo="https://telegra.ph/file/29710ffe0c70108ff1955.jpg",
                     reply_markup=InlineKeyboardMarkup(button),
                     caption=text.format(name, user_id))
+    await AddUserToDatabase(client, message)    
 
 
 
