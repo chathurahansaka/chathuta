@@ -12,7 +12,7 @@ from bot.helpers.database import db
 from bot.helpers.database import mongo_db_lmao as client
 from config import LOG_CHANNEL, BROADCAST_AS_COPY
 
-async def AddUserToDatabase(bot: Client, cmd: Message):
+async def AddUserToDatabase(bot, cmd):    
     if not await db.is_user_exist(cmd.from_user.id):
         await db.add_user(cmd.from_user.id)
         if LOG_CHANNEL is not None:
