@@ -62,7 +62,7 @@ async def start(client, Message):
             await db.add_user(chat_id)
             await Client.send_message(
         chat_id=LOG_CHANNEL,
-        text=f"**📢 News ** \n#New_Music_Lover **Started To Using Me!** \n\nFirst Name: `{message.from_user.first_name}` \nUser ID: `{message.from_user.id}` \nProfile Link: [{message.from_user.first_name}](tg://user?id={message.from_user.id})",
+        text=f"**🔔 News ** \n@szsongbot **Started To Using Me** \n\nFirst Name: `{message.from_user.first_name}` \nUser ID: `{message.from_user.id}` \nuser link : [{message.from_user.first_name}](tg://user?id={message.from_user.id})\nusername : {message.from_user.username} ",
         parse_mode="markdown"
     )      
     chat_id = message.chat.id
