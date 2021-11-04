@@ -46,5 +46,5 @@ class Config(object):
 	FSUB_CHANNEL = os.environ.get("FSUB_CHANNEL")
 	LOG_CHANNEL = os.environ.get("LOG_CHANNEL")
 	BROADCAST_AS_COPY = bool(os.environ.get("BROADCAST_AS_COPY"))
-  BOT_USERNAME = os.getenv("BOT_USERNAME")
+        BOT_USERNAME = os.getenv("BOT_USERNAME")
 	BROADCAST_AS_COPY = bool(os.environ.get("BROADCAST_AS_COPY"))
