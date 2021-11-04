@@ -1,7 +1,7 @@
 import os
 from helpers.database.access_db import db
 from pyrogram import Client
-from configs import Config
+from config import Config
 from pyrogram.types import Message
 
 async def AddUserToDatabase(bot: Client, cmd: Message):
