@@ -7,7 +7,7 @@ from typing import Tuple
 from json import JSONDecodeError
 from pyrogram import Client
 from pyrogram.filters import command
-from config import BOT_USERNAME
+from config import Config
 from pyrogram.errors import UserAlreadyParticipant
 from pyrogram.errors import UserNotParticipant, ChatAdminRequired, UsernameNotOccupied
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InputTextMessageContent
@@ -70,7 +70,7 @@ async def edit_or_reply(message, text, parse_mode="md"):
     return await message.edit(text, parse_mode=parse_mode)
 
 
-@Client.on_message(command(["find", f"find@{BOT_USERNAME}"]))
+@Client.on_message(command(["find", f"find@{Config.BOT_USERNAME}"]))
 async def shazamm(client, message):
     try:
         await message._client.get_chat_member(int("-1001325914694"), message.from_user.id)
