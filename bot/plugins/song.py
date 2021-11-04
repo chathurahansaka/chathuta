@@ -14,6 +14,7 @@ def time_to_seconds(time):
 
 
 @app.on_message(filters.command(['song']))
+@fsub()
 def song(client, message):
     user_id = message.from_user.id 
     user_name = message.from_user.first_name 
