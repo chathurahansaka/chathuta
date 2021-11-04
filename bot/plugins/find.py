@@ -7,10 +7,11 @@ from typing import Tuple
 from json import JSONDecodeError
 from pyrogram import Client
 from pyrogram.filters import command
-from config import Config
 from pyrogram.errors import UserAlreadyParticipant
 from pyrogram.errors import UserNotParticipant, ChatAdminRequired, UsernameNotOccupied
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InputTextMessageContent
+
+BOT_USERNAME = "szsongbot"
 
 JOIN_ASAP = " **You cant use me untill subscribe our updates channel** ☹️\n\n So Please join our updates channel by the following button and hit on the ` /find ` command again 😊"
 
@@ -70,7 +71,7 @@ async def edit_or_reply(message, text, parse_mode="md"):
     return await message.edit(text, parse_mode=parse_mode)
 
 
-@Client.on_message(command(["find", f"find@{Config.BOT_USERNAME}"]))
+@Client.on_message(command(["find", f"find@{BOT_USERNAME}"]))
 async def shazamm(client, message):
     try:
         await message._client.get_chat_member(int("-1001325914694"), message.from_user.id)
