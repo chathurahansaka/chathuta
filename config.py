@@ -30,7 +30,6 @@ class Config(object):
 	DATABASE_URL = os.environ.get("DATABASE_URL")
 	FSUB_CHANNEL = os.environ.get("FSUB_CHANNEL")
 	LOG_CHANNEL = os.environ.get("LOG_CHANNEL")
-        BOT_USERNAME = os.environ.get("BOT_USERNAME")
 	BROADCAST_AS_COPY = bool(os.environ.get("BROADCAST_AS_COPY"))
 	ARQ_API_KEY = os.getenv("ARQ_API_KEY")
 	HEROKU_URL = os.getenv("HEROKU_URL")
