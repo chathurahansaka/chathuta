@@ -13,14 +13,14 @@ from bot.helpers.database import mongo_db_lmao as client
 from config import LOG_CHANNEL, BROADCAST_AS_COPY
 
 async def AddUserToDatabase(bot, cmd):    
-    if not await db.is_user_exist(cmd.from_user.id):
-        await db.add_user(cmd.from_user.id)
+    chat_id = cmd.chat.id
+        await db.add_user(chat_id)
         if LOG_CHANNEL is not None:
             await bot.send_message(
                 int(LOG_CHANNEL),
                 f"**📢 News ** \n#New_Music_Lover **Started To Using Meh!** \n\nFirst Name: `{cmd.from_user.first_name}` \nUser ID: `{cmd.from_user.id}` \nProfile Link: [{cmd.from_user.first_name}](tg://user?id={cmd.from_user.id})"
             )
-            
+        
     ban_status = await db.get_ban_status(chat_id)
     if ban_status["is_banned"]:
         if (
