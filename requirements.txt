@@ -12,6 +12,16 @@ aiofiles
 yt_dlp
 wget
 
+#vidtags
+YoutubeTags
+
+#dev
+heroku3
+psutil
+pygithub
+motor
+dnspython
+pymongo
+
 #arq
 python-arq
-
