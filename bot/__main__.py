@@ -27,7 +27,7 @@ from pyrogram.types.bots_and_keyboards import reply_keyboard_markup
 from bot.plugins import *
 from pyrogram import idle, filters
 from bot.plugins.Dev import *
-from config import BOT_USERNAME
+from config import Config
 from bot.helpers.fsub import fsub
 from bot.helpers.database.add_user import AddUserToDatabase
 from bot.helpers.fsub import ForceSub
@@ -65,7 +65,7 @@ START_BTN = [
         InlineKeyboardButton(text="🆘️ Help 🆘️",  callback_data="xelp")
     ],
     [
-        InlineKeyboardButton(text="➕Add Me To Your Group➕", url=f"http://t.me/{BOT_USERNAME}?startgroup=new"),
+        InlineKeyboardButton(text="➕Add Me To Your Group➕", url=f"http://t.me/{Config.BOT_USERNAME}?startgroup=new"),
     ],
 ]
 
