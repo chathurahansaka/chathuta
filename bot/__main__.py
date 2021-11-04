@@ -29,8 +29,7 @@ from pyrogram import idle, filters
 from bot.plugins.Dev import *
 from config import BOT_USERNAME
 from bot.helpers.fsub import fsub
-from bot.helpers.dbthings import AddUserToDatabase
-from bot.helpers.database import db
+
 
 text = """
 Hello [{}](tg://user?id={}) 👋
@@ -44,7 +43,7 @@ If you want to know how to use me just
 touch on `Help` Button 👨
 
 ☬─────────────☬
-🤟 Bot Owner :- [supun](https://t.me/supunmabot)
+🤟 Bot Owner :- [supunma](https://t.me/supunmabot)
 🦅 Powered By :- `【SZ™】`
 ☬─────────────☬
 
@@ -53,8 +52,8 @@ touch on `Help` Button 👨
 """
 
 @app.on_message(filters.command("start"))
-@fsub()                         
-async def start(client, Message): 
+@fsub()
+async def start(client, message): #fsub start
     chat_id = message.chat.id
     user_id = message.from_user["id"]
     name = message.from_user["first_name"]
@@ -82,7 +81,6 @@ async def start(client, Message):
                     photo="https://telegra.ph/file/29710ffe0c70108ff1955.jpg",
                     reply_markup=InlineKeyboardMarkup(button),
                     caption=text.format(name, user_id))
-    await AddUserToDatabase(client, message)    
 
 
 
