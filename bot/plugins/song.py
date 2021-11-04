@@ -7,7 +7,6 @@ from pyrogram import filters
 from bot import bot as app
 from youtube_search import YoutubeSearch
 from pyrogram.types import  InlineKeyboardMarkup, InlineKeyboardButton
-from bot.helpers.fsub import fsub
 
 def time_to_seconds(time):
     stringt = str(time)
@@ -15,8 +14,7 @@ def time_to_seconds(time):
 
 
 @app.on_message(filters.command(['song']))
-@fsub()
-async def song(client, message):
+def song(client, message):
     user_id = message.from_user.id 
     user_name = message.from_user.first_name 
     rpk = "["+user_name+"](tg://user?id="+str(user_id)+")"
@@ -63,7 +61,7 @@ async def song(client, message):
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
-        rep = f'🎙 **Title**: [{title[:35]}]({link})\n🎬 **Source**: `YouTube`\n⏱️ **Duration**: `{duration}`\n👁‍🗨 **Views**: `{views}`\n**🎧 Requested by:** `{message.from_user.id}´\n\n 🤟Downloaded By : @szsongbot '
+        rep = f'🎙 **Title**: [{title[:35]}]({link})\n🎬 **Source**: `YouTube`\n⏱️ **Duration**: `{duration}`\n👁‍🗨 **Views**: `{views}`\n**🎧 Requested by:** {message.from_user.username}\n\n 🤟Downloaded By : @szsongbot '
         secmul, dur, dur_arr = 1, 0, duration.split(':')
         for i in range(len(dur_arr)-1, -1, -1):
             dur += (int(dur_arr[i]) * secmul)
