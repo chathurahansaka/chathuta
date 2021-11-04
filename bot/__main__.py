@@ -43,7 +43,7 @@ If you want to know how to use me just
 touch on `Help` Button 👨
 
 ☬─────────────☬
-🤟 Bot Owner :- [supunma](https://t.me/supunmabot)
+🤟 Bot Owner :- [Supun](https://t.me/supunmabot)
 🦅 Powered By :- `【SZ™】`
 ☬─────────────☬
 
