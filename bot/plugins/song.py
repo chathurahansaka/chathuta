@@ -7,6 +7,7 @@ from pyrogram import filters
 from bot import bot as app
 from youtube_search import YoutubeSearch
 from pyrogram.types import  InlineKeyboardMarkup, InlineKeyboardButton
+from bot.helpers.fsub import fsub
 
 def time_to_seconds(time):
     stringt = str(time)
@@ -56,7 +57,7 @@ def song(client, message):
         )
         print(str(e))
         return
-    m.edit("Downloading Song... Please wait ⏱")
+    m.edit("Downloading Song... Please wait 2 minutes")
     try:
         with youtube_dl.YoutubeDL(ydl_opts) as ydl:
             info_dict = ydl.extract_info(link, download=False)
