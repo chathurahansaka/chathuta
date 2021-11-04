@@ -12,15 +12,15 @@ from bot.helpers.database import db
 from bot.helpers.database import mongo_db_lmao as client
 from config import LOG_CHANNEL, BROADCAST_AS_COPY
 
-async def AddUserToDatabase(bot, cmd):    
+async def handle_user_status(bot, cmd):
     chat_id = cmd.chat.id
+    if not await db.is_user_exist(chat_id):
         await db.add_user(chat_id)
-        if LOG_CHANNEL is not None:
-            await bot.send_message(
-                int(LOG_CHANNEL),
-                f"**📢 News ** \n#New_Music_Lover **Started To Using Meh!** \n\nFirst Name: `{cmd.from_user.first_name}` \nUser ID: `{cmd.from_user.id}` \nProfile Link: [{cmd.from_user.first_name}](tg://user?id={cmd.from_user.id})"
-            )
-        
+        await bot.send_message(
+            LOG_CHANNEL,
+            f"**📢 News ** \n#New_Music_Lover **Started To Using Meh!** \n\nFirst Name: `{cmd.from_user.first_name}` \nUser ID: `{cmd.from_user.id}` \nProfile Link: [{cmd.from_user.first_name}](tg://user?id={cmd.from_user.id})"
+        )
+
     ban_status = await db.get_ban_status(chat_id)
     if ban_status["is_banned"]:
         if (
@@ -122,6 +122,5 @@ async def main_broadcast_handler(m, db):
             quote=True
         )
     os.remove('broadcast-logs.txt')
-
 
 
