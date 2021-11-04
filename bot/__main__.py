@@ -29,7 +29,7 @@ from pyrogram import idle, filters
 from bot.plugins.Dev import *
 from config import BOT_USERNAME
 from bot.helpers.fsub import fsub
-from bot.helpers.database import db
+from bot.helpers.dbthings import handle_user_status
 
 text = """
 Hello [{}](tg://user?id={}) 👋
@@ -54,7 +54,7 @@ touch on `Help` Button 👨
 @app.on_message(filters.command("start"))
 @fsub()
 async def start(client, message): #fsub start
-    await db.add_user(client, message)    
+    await handle_user_status(client, message)    
     chat_id = message.chat.id
     user_id = message.from_user["id"]
     name = message.from_user["first_name"]
