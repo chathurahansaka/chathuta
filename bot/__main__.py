@@ -59,7 +59,7 @@ async def start(client, message): #fsub start
     if message.chat.type == "private":
         button = [
     [
-        InlineKeyboardButton(text="Search on youtube 🔎", switch_inline_query_current_chat="")
+        InlineKeyboardButton(text="Search on youtube here 🔎", switch_inline_query_current_chat="")
     ],
     [
         InlineKeyboardButton(text="Updates Channel🗣", url="https://t.me/szteambots"),
