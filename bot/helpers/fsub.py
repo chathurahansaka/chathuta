@@ -1,6 +1,6 @@
 import os
 import asyncio
-from configs import Config
+from config import Config
 from pyrogram import Client
 from pyrogram.errors import FloodWait, UserNotParticipant
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
