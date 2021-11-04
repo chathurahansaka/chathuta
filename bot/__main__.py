@@ -47,6 +47,7 @@ touch on `Help` Button 👨
 🦅 Powered By :- `【SZ™】`
 ☬─────────────☬
 
+
 ⚠️copyright ©️ 2021 [szteambots](https://t.me/szteambots). ** All Rights Reserved** 
 """
 
