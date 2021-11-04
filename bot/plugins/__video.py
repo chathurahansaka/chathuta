@@ -61,7 +61,7 @@ async def vsong(pbot, message):
             InlineKeyboardButton("Watch On Youtube🎬", url=f"{link}")
         ],
         [
-            InlineKeyboardButton("Support Chat 🔥️", url=f"https://t.me/slbotzone")
+            InlineKeyboardButton("Search here 🔎", switch_inline_query_current_chat="")
         ]
     ]
     
