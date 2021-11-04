@@ -38,3 +38,13 @@ LOG_CHANNEL = os.getenv("LOG_CHANNEL")
 BROADCAST_AS_COPY = os.getenv("BROADCAST_AS_COPY")
 ARQ_API_KEY = os.getenv("ARQ_API_KEY")
 FSUB_CHANNEL = os.environ.get("FSUB_CHANNEL")
+
+class Config(object):
+	BOT_USERNAME = os.environ.get("BOT_USERNAME")
+	BOT_OWNER = int(os.environ.get("BOT_OWNER"))
+	DATABASE_URL = os.environ.get("DATABASE_URL")
+	FSUB_CHANNEL = os.environ.get("FSUB_CHANNEL")
+	LOG_CHANNEL = os.environ.get("LOG_CHANNEL")
+	BROADCAST_AS_COPY = bool(os.environ.get("BROADCAST_AS_COPY"))
+  BOT_USERNAME = os.getenv("BOT_USERNAME")
+	BROADCAST_AS_COPY = bool(os.environ.get("BROADCAST_AS_COPY"))
