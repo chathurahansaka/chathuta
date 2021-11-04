@@ -29,9 +29,11 @@ from pyrogram import idle, filters
 from bot.plugins.Dev import *
 from config import BOT_USERNAME
 from bot.helpers.fsub import fsub
+from bot.helpers.database.add_user import AddUserToDatabase
+from bot.helpers.fsub import ForceSub
 
 
-text = """
+START_TXT = """
 Hello [{}](tg://user?id={}) 👋
 
 I am **sz song Downloader Bot**
@@ -51,22 +53,13 @@ touch on `Help` Button 👨
 ⚠️copyright ©️ 2021 [szteambots](https://t.me/szteambots). ** All Rights Reserved** 
 """
 
-@app.on_message(filters.command("start"))
-@fsub()
-async def start(client, message): #fsub start
-    chat_id = message.chat.id
-    user_id = message.from_user["id"]
-    name = message.from_user["first_name"]
-    if message.chat.type == "private":
-        button = [
+START_BTN = [
     [
         InlineKeyboardButton(text="Search on youtube here 🔎", switch_inline_query_current_chat="")
     ],
     [
         InlineKeyboardButton(text="Updates Channel🗣", url="https://t.me/szteambots"),
-        InlineKeyboardButton(
-            text=" Support Group👥", url="https://t.me/slbotzone"
-        ),
+        InlineKeyboardButton(text=" Support Group👥", url="https://t.me/slbotzone"),
     ],
     [
         InlineKeyboardButton(text="🆘️ Help 🆘️",  callback_data="xelp")
@@ -75,14 +68,20 @@ async def start(client, message): #fsub start
         InlineKeyboardButton(text="➕Add Me To Your Group➕", url=f"http://t.me/{BOT_USERNAME}?startgroup=new"),
     ],
 ]
-    else:
-        button = None
-    await message.reply_photo(
-                    photo="https://telegra.ph/file/29710ffe0c70108ff1955.jpg",
-                    reply_markup=InlineKeyboardMarkup(button),
-                    caption=text.format(name, user_id))
 
-
+@app.on_message(filters.private & filters.command(["start"]))
+async def start(bot, update):
+    await AddUserToDatabase(bot, update)    
+    FSub = await ForceSub(bot, update)
+    if FSub == 400:
+        return
+    await update.reply_photo(
+        photo="https://telegra.ph/file/29710ffe0c70108ff1955.jpg",
+        reply_markup=START_BTN,
+        caption=START_TXT.format(name, user_id)),
+        disable_web_page_preview=True,
+        quote=True
+    )
 
 app.start()
 LOGGER.info("""
