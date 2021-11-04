@@ -36,9 +36,12 @@ Hello [{}](tg://user?id={}) 👋
 
 I am **sz song Downloader Bot**
 
-🎧You can download any song useing me
-I can search song useing voice clip
+😊Available Features 
 
+Download  song 🎧
+Download saavn 🎼
+Download lyrics 📃
+Download video  📥
 If you want to know how to use me just
 touch on `Help` Button 👨
 
@@ -54,7 +57,7 @@ touch on `Help` Button 👨
 @app.on_message(filters.command("start"))
 @fsub()
 async def start(client, message): #fsub start
-    chat_id = message.chat.id
+   chat_id = message.chat.id
     user_id = message.from_user["id"]
     name = message.from_user["first_name"]
     if message.chat.type == "private":
