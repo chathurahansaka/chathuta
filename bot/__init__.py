@@ -21,11 +21,10 @@
 #SOFTWARE.
 
 import logging
-from config import API_HASH, API_ID, BOT_TOKEN
 from pyrogram import Client
 from Python_ARQ import ARQ
 from aiohttp import ClientSession
-from config import ARQ_API_KEY
+from config import Config
 
 
 logging.basicConfig(
@@ -34,7 +33,7 @@ logging.basicConfig(
 
 LOGGER = logging.getLogger(__name__)
 
-bot = Client("bot", bot_token=BOT_TOKEN, api_hash=API_HASH, api_id=API_ID)
+bot = Client("bot", bot_token=Config.BOT_TOKEN, api_hash=Config.API_HASH, api_id=Config.API_ID)
 ARQ_API_URL = "https://thearq.tech"
 aiohttpsession = ClientSession()
 arq = ARQ(ARQ_API_URL, ARQ_API_KEY, aiohttpsession)
