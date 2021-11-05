@@ -22,6 +22,8 @@
 
 import os
 
+ARQ_API_KEY = os.getenv("ARQ_API_KEY")
+
 class Config(object):
 	API_ID = int(os.environ.get("API_ID"))
 	API_HASH = os.environ.get("API_HASH")
@@ -31,7 +33,6 @@ class Config(object):
 	FSUB_CHANNEL = os.environ.get("FSUB_CHANNEL")
 	LOG_CHANNEL = os.environ.get("LOG_CHANNEL")
 	BROADCAST_AS_COPY = bool(os.environ.get("BROADCAST_AS_COPY"))
-	ARQ_API_KEY = os.getenv("ARQ_API_KEY")
 	BOT_OWNER = os.getenv("BOT_OWNER")
 	UPSTREAM_REPO = os.getenv("UPSTREAM_REPO")
 	U_BRANCH = os.getenv("U_BRANCH")
