@@ -1,5 +1,5 @@
 import os
-from helpers.database.database import Database
+from bot.helpers.database.database import Database
 
 BOT_USERNAME = "szsongbot"
 
