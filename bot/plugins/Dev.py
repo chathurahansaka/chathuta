@@ -40,8 +40,7 @@ from functools import wraps
 from os import environ, execle, path, remove
 
 from bot import bot as app
-from bot.helpers.database import db
-from bot.helpers.dbthings import main_broadcast_handler
+from bot.helpers.database.access_db import db
 from bot.helpers.humanbytes import humanbytes
 from config import BOT_USERNAME, BOT_OWNER, SUDO_USERS
 
