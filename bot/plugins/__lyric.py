@@ -38,10 +38,7 @@ async def lirik(_, message):
         query = message.text.split(None, 1)[1]
         resp = requests.get(f"https://api-tede.herokuapp.com/api/lirik?l={query}").json()
         result = f"🎼 **lyrics  search Successfully**✅\n\n◇───────────────◇ `{resp['data']}´\n\n◇───────────────◇\n\n🔥**Downloaded by**:@szsongbot  \n🌷 **Requestor** : {message.from_user.username}\n⚡️ **Powered By**   : 【SZ™】\n\©2021【SZ™】 team  **All Right Reserved**⚠️️   "
-        await message.reply_photo(
-                                  photo = "https://telegra.ph/file/376c689344b00516216d0.jpg",
-                                  caption = result,
-                                  disable_web_page_preview=True)
+        await message.reply_text(result, disable_web_page_preview=True)
         await rep.delete()
     except Exception as ex:
         print(ex)
