@@ -42,6 +42,7 @@ async def lirik(_, message):
                                   photo = "https://telegra.ph/file/376c689344b00516216d0.jpg",
                                   caption = result,
                                   disable_web_page_preview=True)
+        await rep.delete()
     except Exception as ex:
         print(ex)
         await rep.edit("**Lyrics not found.** please give a valid song name !")
