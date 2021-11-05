@@ -25,7 +25,7 @@ from pyrogram import Client
 from Python_ARQ import ARQ
 from aiohttp import ClientSession
 from config import ARQ_API_KEY
-
+from config import Config
 
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO
