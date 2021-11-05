@@ -42,10 +42,14 @@ from os import environ, execle, path, remove
 from bot import bot as app
 from bot.helpers.database.access_db import db
 from bot.helpers.humanbytes import humanbytes
-from config import BOT_USERNAME, BOT_OWNER, SUDO_USERS
+
 
 from bot.helpers.broadcast import broadcast_handler
 from config import Config
+
+BOT_USERNAME = "szsongbot"
+BOT_OWNER = Config.BOT_OWNER
+SUDO_USERS = Config.BOT_OWNER
 
 # Stats Of  Bot
 @app.on_message(filters.command("stats"))
