@@ -78,8 +78,7 @@ async def start(bot, update):
     await update.reply_photo(
         photo="https://telegra.ph/file/29710ffe0c70108ff1955.jpg",
         reply_markup=START_BTN,
-        caption=START_TXT.format(name, user_id)),
-        quote=True
+        caption=START_TXT.format(name, user_id))
     )
 
 app.start()
