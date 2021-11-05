@@ -33,7 +33,7 @@ from bot.helpers.fsub import ForceSub
 BOT_USERNAME = "szsongbot"
 
 START_TXT = """
-Hello [{}](tg://user?id={}) 👋
+Hello {} 👋
 
 I am **sz song Downloader Bot**
 
@@ -77,7 +77,7 @@ async def start(bot, update):
     await update.reply_photo(
         photo="https://telegra.ph/file/29710ffe0c70108ff1955.jpg",
         reply_markup=START_BTN,
-        caption=START_TXT.format(name, user_id))
+        caption=START_TXT.format(update.from_user.mention)
 
 app.start()
 LOGGER.info("""
