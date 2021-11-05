@@ -1,6 +1,6 @@
 import os
 from bot.helpers.database.database import Database
-from configs import Config
+from config import Config
 
 BOT_USERNAME = "szsongbot"
 
