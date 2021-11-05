@@ -1,5 +1,5 @@
 import os
-from helpers.database.access_db import db
+from bot.helpers.database.access_db import db
 from pyrogram import Client
 from config import Config
 from pyrogram.types import Message
