@@ -79,7 +79,6 @@ async def start(bot, update):
         photo="https://telegra.ph/file/29710ffe0c70108ff1955.jpg",
         reply_markup=START_BTN,
         caption=START_TXT.format(name, user_id)),
-        disable_web_page_preview=True,
         quote=True
     )
 
