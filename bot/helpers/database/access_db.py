@@ -4,4 +4,4 @@ from config import Config
 
 BOT_USERNAME = "szsongbot"
 
-db = Database(Config.DATABASE_URL, Config.BOT_USERNAME)
+db = Database(Config.DATABASE_URL, BOT_USERNAME)
