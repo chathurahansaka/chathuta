@@ -45,7 +45,7 @@ async def jssong(_, message):
             title=sname,
             performer=ssingers,
             duration=sduration,
-            caption"🤟Downloaded By : @szsongbot",
+            caption=f"🤟Downloaded By : @szsongbot",
             reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("☘️sz team bot's", url=f"https://t.me/szteambots")]]),
         )
         await m.delete()
