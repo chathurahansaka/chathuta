@@ -27,7 +27,6 @@ from pyrogram.types.bots_and_keyboards import reply_keyboard_markup
 from bot.plugins import *
 from pyrogram import idle, filters
 from bot.plugins.Dev import *
-from bot.helpers.fsub import fsub
 from bot.helpers.database.add_user import AddUserToDatabase
 from bot.helpers.fsub import ForceSub
 
