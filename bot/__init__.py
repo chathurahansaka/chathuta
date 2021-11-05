@@ -24,7 +24,7 @@ import logging
 from pyrogram import Client
 from Python_ARQ import ARQ
 from aiohttp import ClientSession
-from config import Config
+from config import ARQ_API_KEY
 
 
 logging.basicConfig(
