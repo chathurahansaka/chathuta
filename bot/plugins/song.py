@@ -7,7 +7,8 @@ from pyrogram import filters
 from bot import bot as app
 from youtube_search import YoutubeSearch
 from pyrogram.types import  InlineKeyboardMarkup, InlineKeyboardButton
-
+from bot.helpers.fsub import ForceSub
+from bot.helpers.database.add_user import AddUserToDatabase
 def time_to_seconds(time):
     stringt = str(time)
     return sum(int(x) * 60 ** i for i, x in enumerate(reversed(stringt.split(':'))))
@@ -15,6 +16,10 @@ def time_to_seconds(time):
 
 @app.on_message(filters.command(['song']))
 def song(client, message):
+    await AddUserToDatabase(client, message)
+    FSub = await ForceSub(client, message)
+    if FSub == 400:
+        return
     user_id = message.from_user.id 
     user_name = message.from_user.first_name 
     rpk = "["+user_name+"](tg://user?id="+str(user_id)+")"
