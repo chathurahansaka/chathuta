@@ -92,8 +92,8 @@ Use Bellow Format to get song / video / lyric / saavn
 async def close(_, query: CallbackQuery):
     await query.message.delete()
 
-@app.on_callback_query(filters.regex("xelp"))
-async def xelp(_, query: CallbackQuery):
+@app.on_callback_query(filters.regex("help"))
+async def help(_, query: CallbackQuery):
     await query.edit_message_text(
          f"""
 Hello {message.from_user.mention} 👋 This is szsongbot Help menu
