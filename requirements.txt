@@ -11,6 +11,7 @@ asyncio
 aiofiles
 yt_dlp
 wget
+pytube
 
 #vidtags
 YoutubeTags
