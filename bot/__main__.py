@@ -34,7 +34,7 @@ from bot.helpers.fsub import fsub
 text = """
 Hello [{}](tg://user?id={}) 👋
 
-I am **sz song Downloader Bot**
+I am **Mayawee song bot**
 
 😊Available Features 
 
@@ -46,12 +46,12 @@ If you want to know how to use me just
 touch on `Help` Button 👨
 
 ☬─────────────☬
-🤟 Bot Owner :- [Supun](https://t.me/supunmabot)
-🦅 Powered By :- `【SZ™】`
+🤟 Bot Owner :- [Chathura](https://t.me/aboutchathura)
+🦅 Powered By :- `【snt™】`
 ☬─────────────☬
 
 
-⚠️copyright ©️ 2021 [szteambots](https://t.me/szteambots). ** All Rights Reserved** 
+⚠️copyright ©️ 2022 [Mayawee](https://t.me/Mayawee_bot_help). ** All Rights Reserved** 
 """
 
 @app.on_message(filters.command("start"))
@@ -66,9 +66,9 @@ async def start(client, message): #fsub start
         InlineKeyboardButton(text="Search on youtube here 🔎", switch_inline_query_current_chat="")
     ],
     [
-        InlineKeyboardButton(text="Updates Channel🗣", url="https://t.me/szteambots"),
-        InlineKeyboardButton(
-            text=" Support Group👥", url="https://t.me/slbotzone"
+        InlineKeyboardButton(text="Updates Channel🗣", url=""),
+        InlineKeyboardButton(https://t.me/Mayawee_bot_help
+            text=" Support Group👥", url="https://t.me/mayawee_songs"
         ),
     ],
     [
@@ -81,7 +81,7 @@ async def start(client, message): #fsub start
     else:
         button = None
     await message.reply_photo(
-                    photo="https://telegra.ph/file/29710ffe0c70108ff1955.jpg",
+                    photo="https://telegra.ph/file/69d90dce171ee2ce2743a.jpg",
                     reply_markup=InlineKeyboardMarkup(button),
                     caption=text.format(name, user_id))
 
@@ -93,7 +93,7 @@ LOGGER.info("""
 ┃━┫┗┳━┓┏┳┫┗┳━┳┛┃┃┗┳━┫┗┓
 ┣━┃┏┫╋┗┫┏┫┏┫┻┫╋┃┃╋┃╋┃┏┫
 ┗━┻━┻━━┻┛┗━┻━┻━┛┗━┻━┻━┛
-⚊❮❮❮❮  I am supun  ❯❯❯❯⚊
-⚊❮❮❮❮  Join @sl_bot_zone ❯❯❯❯⚊
+⚊❮❮❮❮  Iamchathura   ❯❯❯❯⚊
+⚊❮❮❮❮  Join @mayawee_songs ❯❯❯❯⚊
 """)
 idle()
